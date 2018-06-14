@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fzi-xj-iIu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Desafio_Carros" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de Carros" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd2-0x-FLl">
+                                <rect key="frame" x="16" y="28" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="77L-nM-v1w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="149" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdU-SF-2sR">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="611.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarTableViewCell" rowHeight="149" id="Wjf-6S-pSL" customClass="CarTableViewCell" customModule="Desafio_Carros" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="149"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wjf-6S-pSL" id="sGi-qW-lz6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOU-ET-B43">
+                                                    <rect key="frame" x="144" y="8" width="223" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Chm-qd-s52"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-wL-NbQ">
+                                                    <rect key="frame" x="144" y="37" width="223" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0e4-9n-nHO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-Ly-TsY" customClass="CircleImage" customModule="Desafio_Carros" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="10" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="8L4-6Z-vPY"/>
+                                                        <constraint firstAttribute="height" constant="128" id="IMT-5x-BI8"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pZ1-Ly-TsY" firstAttribute="top" secondItem="sGi-qW-lz6" secondAttribute="topMargin" constant="2" id="2YE-p2-NFN"/>
+                                                <constraint firstItem="0fe-wL-NbQ" firstAttribute="top" secondItem="zOU-ET-B43" secondAttribute="bottom" constant="8" id="J4h-Nh-7kn"/>
+                                                <constraint firstItem="zOU-ET-B43" firstAttribute="leading" secondItem="pZ1-Ly-TsY" secondAttribute="trailing" constant="8" id="JpH-PU-mlX"/>
+                                                <constraint firstAttribute="topMargin" secondItem="zOU-ET-B43" secondAttribute="top" id="UJf-xt-kh8"/>
+                                                <constraint firstItem="0fe-wL-NbQ" firstAttribute="leading" secondItem="pZ1-Ly-TsY" secondAttribute="trailing" constant="8" id="YFQ-2a-5ze"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="pZ1-Ly-TsY" secondAttribute="leading" id="mIn-4p-HJY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0fe-wL-NbQ" secondAttribute="trailing" id="nKU-TE-Lb4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zOU-ET-B43" secondAttribute="trailing" id="vIE-wN-Wyh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="carImage" destination="pZ1-Ly-TsY" id="mAS-qf-EMX"/>
+                                            <outlet property="carName" destination="zOU-ET-B43" id="kQ6-qw-Vum"/>
+                                            <outlet property="carPrice" destination="0fe-wL-NbQ" id="vGX-yk-Ykb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="H9P-eD-1Of"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bDq-Op-tbM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pdU-SF-2sR" secondAttribute="bottom" id="Boc-UV-lmi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xd2-0x-FLl" secondAttribute="trailing" id="GPG-NT-fuA"/>
+                            <constraint firstItem="pdU-SF-2sR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MlB-9f-GAa"/>
+                            <constraint firstItem="pdU-SF-2sR" firstAttribute="top" secondItem="Xd2-0x-FLl" secondAttribute="bottom" constant="6.5" id="VVd-hV-BFN"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Xd2-0x-FLl" secondAttribute="leading" id="Vxa-J3-nDe"/>
+                            <constraint firstItem="Xd2-0x-FLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i4B-ur-nrE"/>
+                            <constraint firstAttribute="trailing" secondItem="pdU-SF-2sR" secondAttribute="trailing" id="ncf-Wz-sX7"/>
+                            <constraint firstItem="Xd2-0x-FLl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="xli-UN-Ine"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xju-yP-uJD"/>
+                    <connections>
+                        <outlet property="carViewModel" destination="zAI-Zv-h2b" id="F6w-F7-Um9"/>
+                        <outlet property="carsTableView" destination="pdU-SF-2sR" id="XWF-zc-ges"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="Nj9-Fq-SdF" userLabel="APIClient" customClass="APIClient" customModule="Desafio_Carros" customModuleProvider="target"/>
+                <customObject id="zAI-Zv-h2b" customClass="CarViewModel" customModule="Desafio_Carros" customModuleProvider="target">
+                    <connections>
+                        <outlet property="apiClient" destination="Nj9-Fq-SdF" id="uZ2-vU-LGU"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="972" y="48.125937031484263"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Md-VV-vse">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Fzi-xj-iIu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Iy-Kq-w1z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Qba-GI-XTO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIe-xq-BIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="48.125937031484263"/>
+        </scene>
+    </scenes>
+</document>

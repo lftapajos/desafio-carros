@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "71EBA780FBFE674F784D699AE63425B5DEDD7F93",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A810498716749D1E96222CD9263F5E5608C353ED" : 9223372036854775807,
+    "71EBA780FBFE674F784D699AE63425B5DEDD7F93" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "35698482-7835-4D6E-86DD-D8D572559EC3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A810498716749D1E96222CD9263F5E5608C353ED" : "..\/..",
+    "71EBA780FBFE674F784D699AE63425B5DEDD7F93" : "desafio-carros\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Desafio_Carros",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Desafio_Carros.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lftapajos\/desafio-carros.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "71EBA780FBFE674F784D699AE63425B5DEDD7F93"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lftapajos\/Carros.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A810498716749D1E96222CD9263F5E5608C353ED"
+    }
+  ]
+}

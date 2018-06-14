@@ -1,0 +1,6 @@
+framework module Pods_Desafio_Carros {
+  umbrella header "Pods-Desafio_Carros-umbrella.h"
+
+  export *
+  module * { export * }
+}
