@@ -11,21 +11,38 @@ import UIKit
 class ViewController: UIViewController {
 
     var carsModel = [CarsModel]()
+    var clientsModel = [ClientsModel]()
     
     @IBOutlet weak var carsTableView: UITableView!
     @IBOutlet var carViewModel: CarViewModel!
+    
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        print("App Path: \(dirPaths)")
+        
         self.startloading()
         carsTableView.delegate = self
         carsTableView.dataSource = self
+        
+        downloadDate()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        downloadDate()
+        
+        //Adiciona cliente
+        self.carViewModel.addClient() {
+            
+            //Mostra mensagem de cliente inserido
+            Alert(controller: self).show(message: "Client add with success!", handler : { action in
+                self.navigationController?.popViewController(animated: true)
+            })
+            
+        }
     }
     
     func downloadDate(){
@@ -77,6 +94,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let carCell = tableView.dequeueReusableCell(withIdentifier: "CarTableViewCell", for: indexPath) as! CarTableViewCell
         carCell.confiqureCarCell(item: self.carsModel[indexPath.row])
         return carCell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailCarViewController") as! DetailCarViewController
+        
+        let car = carsModel[indexPath.row]
+        
+        controller.carSeleced = [car]
+        
+        self.navigationController?.pushViewController(controller, animated: true)
         
     }
     

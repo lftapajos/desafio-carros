@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wjf-6S-pSL" id="sGi-qW-lz6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOU-ET-B43">
@@ -119,6 +119,55 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="972" y="48.125937031484263"/>
+        </scene>
+        <!--Detail Car View Controller-->
+        <scene sceneID="RGD-kM-tAq">
+            <objects>
+                <viewController storyboardIdentifier="DetailCarViewController" id="lsd-4N-zfJ" customClass="DetailCarViewController" customModule="Desafio_Carros" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DEO-vq-Pqq"/>
+                        <viewControllerLayoutGuide type="bottom" id="My7-vK-POV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="seP-sV-lcj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-7Q-KIm" customClass="CircleImage" customModule="Desafio_Carros" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="xGR-cb-o8Q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiP-92-EBK">
+                                <rect key="frame" x="16" y="28" width="343" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gT-lZ-cvv">
+                                <rect key="frame" x="16" y="27" width="41" height="30"/>
+                                <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <action selector="retornar:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="vx5-rN-7Vc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BiP-92-EBK" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="8" id="7am-7g-bnZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="6gT-lZ-cvv" secondAttribute="leading" id="7e3-Rz-V25"/>
+                            <constraint firstItem="6gT-lZ-cvv" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="7" id="Dkf-Zx-2tU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="BiP-92-EBK" secondAttribute="leading" id="S9p-Vh-Fsc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C6F-7Q-KIm" secondAttribute="trailing" id="bKg-Am-AhG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="C6F-7Q-KIm" secondAttribute="leading" id="cD1-rc-IOf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BiP-92-EBK" secondAttribute="trailing" id="one-Ws-YOt"/>
+                            <constraint firstItem="C6F-7Q-KIm" firstAttribute="top" secondItem="BiP-92-EBK" secondAttribute="bottom" constant="16.5" id="vO3-8W-FUN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxq-8f-EnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Md-VV-vse">
