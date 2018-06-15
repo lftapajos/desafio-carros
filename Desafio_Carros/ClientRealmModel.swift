@@ -56,6 +56,29 @@ class ClientRealmModel {
         }
     }
     
+    //Recupera ddos do Cliente
+    func getClient(_ email: String) -> Client {
+        
+        let realm = try! Realm()
+        let client = Client()
+        
+        let detailCliente = realm.objects(Client.self)
+        
+        let predicate = NSPredicate(format: "email = %@", email)
+        let filteredCliente = detailCliente.filter(predicate)
+        
+        for cli in filteredCliente {
+            
+            client.id = cli.id
+            client.nome = cli.nome
+            client.email = cli.email
+            client.saldo = cli.saldo
+            
+        }
+        
+        return client
+    }
+    
 }
 
 //let confirma = clienteModel.addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)

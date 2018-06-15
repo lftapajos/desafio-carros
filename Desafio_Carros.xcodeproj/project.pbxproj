@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		407E0A3FFA5AF81F816C658F /* Pods_Desafio_Carros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E43D9E81D61172E16A399F0 /* Pods_Desafio_Carros.framework */; };
 		694BEF75239E05BF760A7EAE /* Pods_Desafio_CarrosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9735AAA0212AC2ECABFD4B8 /* Pods_Desafio_CarrosTests.framework */; };
+		6999D16D20D38E4F00DC05EE /* RectangleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D16C20D38E4F00DC05EE /* RectangleImage.swift */; };
+		6999D16F20D3A44F00DC05EE /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D16E20D3A44F00DC05EE /* Help.swift */; };
 		69DA48F820D2EF9E0071206B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA48F720D2EF9E0071206B /* AppDelegate.swift */; };
 		69DA48FA20D2EF9E0071206B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA48F920D2EF9E0071206B /* ViewController.swift */; };
 		69DA48FD20D2EF9E0071206B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DA48FB20D2EF9E0071206B /* Main.storyboard */; };
@@ -30,6 +32,7 @@
 		69DA494A20D347940071206B /* ClientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA494920D347940071206B /* ClientsModel.swift */; };
 		69DA494E20D34FB00071206B /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA494D20D34FB00071206B /* CarViewModel.swift */; };
 		69DA495020D35A3D0071206B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA494F20D35A3D0071206B /* Alert.swift */; };
+		69DA495220D367CE0071206B /* DetailCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA495120D367CE0071206B /* DetailCarViewModel.swift */; };
 		D37221AAF8C2CF48A0F14742 /* Pods_Desafio_CarrosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9484781F0839DFDE13C33F33 /* Pods_Desafio_CarrosUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		182489ACFF580F60597D3BF1 /* Pods-Desafio_CarrosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio_CarrosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Desafio_CarrosUITests/Pods-Desafio_CarrosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6999D16C20D38E4F00DC05EE /* RectangleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleImage.swift; sourceTree = "<group>"; };
+		6999D16E20D3A44F00DC05EE /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		69DA48F420D2EF9E0071206B /* Desafio_Carros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desafio_Carros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DA48F720D2EF9E0071206B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69DA48F920D2EF9E0071206B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 		69DA494920D347940071206B /* ClientsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientsModel.swift; sourceTree = "<group>"; };
 		69DA494D20D34FB00071206B /* CarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
 		69DA494F20D35A3D0071206B /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		69DA495120D367CE0071206B /* DetailCarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCarViewModel.swift; sourceTree = "<group>"; };
 		6DAB6D02537A4DF8F6F4BB8A /* Pods-Desafio_CarrosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio_CarrosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Desafio_CarrosTests/Pods-Desafio_CarrosTests.release.xcconfig"; sourceTree = "<group>"; };
 		748831950114D6721FCEBD95 /* Pods-Desafio_Carros.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio_Carros.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Desafio_Carros/Pods-Desafio_Carros.debug.xcconfig"; sourceTree = "<group>"; };
 		7E43D9E81D61172E16A399F0 /* Pods_Desafio_Carros.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Desafio_Carros.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +199,7 @@
 			children = (
 				69DA492620D2EFDF0071206B /* Constant.swift */,
 				69DA494F20D35A3D0071206B /* Alert.swift */,
+				6999D16E20D3A44F00DC05EE /* Help.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				69DA494D20D34FB00071206B /* CarViewModel.swift */,
+				69DA495120D367CE0071206B /* DetailCarViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				69DA493920D314100071206B /* CircleImage.swift */,
+				6999D16C20D38E4F00DC05EE /* RectangleImage.swift */,
 				69DA493B20D314FA0071206B /* ShadowView.swift */,
 			);
 			name = CustomViewDesign;
@@ -556,10 +565,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DA494420D339590071206B /* CarRealmModel.swift in Sources */,
+				6999D16D20D38E4F00DC05EE /* RectangleImage.swift in Sources */,
 				69DA494A20D347940071206B /* ClientsModel.swift in Sources */,
 				69DA493620D30A360071206B /* CarResponse.swift in Sources */,
 				69DA48FA20D2EF9E0071206B /* ViewController.swift in Sources */,
 				69DA493820D313B20071206B /* CarTableViewCell.swift in Sources */,
+				6999D16F20D3A44F00DC05EE /* Help.swift in Sources */,
 				69DA494120D3388E0071206B /* AllRealmObjects.swift in Sources */,
 				69DA493E20D32AF10071206B /* DetailCarViewController.swift in Sources */,
 				69DA494E20D34FB00071206B /* CarViewModel.swift in Sources */,
@@ -568,6 +579,7 @@
 				69DA493A20D314100071206B /* CircleImage.swift in Sources */,
 				69DA492720D2EFDF0071206B /* Constant.swift in Sources */,
 				69DA493020D2F1170071206B /* APIClient.swift in Sources */,
+				69DA495220D367CE0071206B /* DetailCarViewModel.swift in Sources */,
 				69DA494820D3468E0071206B /* ClientRealmModel.swift in Sources */,
 				69DA495020D35A3D0071206B /* Alert.swift in Sources */,
 				69DA493220D2F2A30071206B /* CarsModel.swift in Sources */,

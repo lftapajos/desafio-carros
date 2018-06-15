@@ -16,19 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var carsTableView: UITableView!
     @IBOutlet var carViewModel: CarViewModel!
     
-    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        print("App Path: \(dirPaths)")
+        //let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        //print("App Path: \(dirPaths)")
         
-        self.startloading()
+        self.carViewModel.startloading(self)
         carsTableView.delegate = self
         carsTableView.dataSource = self
         
-        downloadDate()
+        downloadCars()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,31 +43,13 @@ class ViewController: UIViewController {
         }
     }
     
-    func downloadDate(){
+    func downloadCars(){
         self.carViewModel.getCars {
             self.carsModel = Array(self.carViewModel.carsList)
             
-            self.stopLoading()
+            self.carViewModel.stopLoading()
             self.carsTableView.reloadData()
         }
-    }
-    
-    func startloading()
-    {
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
-    }
-    
-    // stop loading
-    func stopLoading()
-    {
-        self.activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
     override func didReceiveMemoryWarning() {

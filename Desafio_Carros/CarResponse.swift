@@ -12,6 +12,7 @@ import ObjectMapper
 class CarResponse: Mappable {
     
     var carModelList : [CarsModel]?
+    var carModelDetail : CarsModel?
     
     required init?(map: Map){
         
@@ -19,5 +20,6 @@ class CarResponse: Mappable {
     
     func mapping(map: Map) {
         carModelList <- map ["results"]
+        carModelDetail <- map ["results"]
     }
 }

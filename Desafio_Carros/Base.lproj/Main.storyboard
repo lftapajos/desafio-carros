@@ -132,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-7Q-KIm" customClass="CircleImage" customModule="Desafio_Carros" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-7Q-KIm" customClass="RectangleImage" customModule="Desafio_Carros" customModuleProvider="target">
                                 <rect key="frame" x="16" y="72" width="343" height="198"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="198" id="xGR-cb-o8Q"/>
@@ -151,23 +151,88 @@
                                     <action selector="retornar:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="vx5-rN-7Vc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdr-OY-Yq6">
+                                <rect key="frame" x="16" y="278" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="wbm-wa-sww"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-aN-6Ti">
+                                <rect key="frame" x="16" y="307" width="343" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="xFW-yo-W7S"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znx-c9-mYb">
+                                <rect key="frame" x="16" y="395" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="MYJ-AE-8Cm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0T-MZ-5DO">
+                                <rect key="frame" x="317" y="32" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9OM-Q9-Jx9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BiP-92-EBK" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="8" id="7am-7g-bnZ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="6gT-lZ-cvv" secondAttribute="leading" id="7e3-Rz-V25"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kd0-aN-6Ti" secondAttribute="trailing" id="BIX-mA-YZB"/>
                             <constraint firstItem="6gT-lZ-cvv" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="7" id="Dkf-Zx-2tU"/>
+                            <constraint firstItem="Qdr-OY-Yq6" firstAttribute="top" secondItem="C6F-7Q-KIm" secondAttribute="bottom" constant="8" id="GTT-vO-CZf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Znx-c9-mYb" secondAttribute="leading" id="KsY-mx-TkB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="BiP-92-EBK" secondAttribute="leading" id="S9p-Vh-Fsc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w0T-MZ-5DO" secondAttribute="trailing" id="Xra-Qc-odd"/>
+                            <constraint firstItem="w0T-MZ-5DO" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="12" id="alR-Vb-7JY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Qdr-OY-Yq6" secondAttribute="leading" id="bC1-f9-Hvg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C6F-7Q-KIm" secondAttribute="trailing" id="bKg-Am-AhG"/>
                             <constraint firstAttribute="leadingMargin" secondItem="C6F-7Q-KIm" secondAttribute="leading" id="cD1-rc-IOf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kd0-aN-6Ti" secondAttribute="leading" id="f2N-1h-wTW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Znx-c9-mYb" secondAttribute="trailing" id="iNX-VC-ekK"/>
+                            <constraint firstItem="C6F-7Q-KIm" firstAttribute="top" secondItem="w0T-MZ-5DO" secondAttribute="bottom" constant="19" id="mcO-Zz-yIx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BiP-92-EBK" secondAttribute="trailing" id="one-Ws-YOt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qdr-OY-Yq6" secondAttribute="trailing" id="rWK-oY-xfq"/>
                             <constraint firstItem="C6F-7Q-KIm" firstAttribute="top" secondItem="BiP-92-EBK" secondAttribute="bottom" constant="16.5" id="vO3-8W-FUN"/>
+                            <constraint firstItem="kd0-aN-6Ti" firstAttribute="top" secondItem="Qdr-OY-Yq6" secondAttribute="bottom" constant="8" id="vRj-Ij-yAD"/>
+                            <constraint firstItem="Znx-c9-mYb" firstAttribute="top" secondItem="kd0-aN-6Ti" secondAttribute="bottom" constant="8" id="xQa-A8-yc0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailCarViewModel" destination="JZT-yj-yc7" id="VGY-RR-wx4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxq-8f-EnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="n3s-Xc-vcQ" userLabel="APIClient" customClass="APIClient" customModule="Desafio_Carros" customModuleProvider="target"/>
+                <customObject id="JZT-yj-yc7" customClass="DetailCarViewModel" customModule="Desafio_Carros" customModuleProvider="target">
+                    <connections>
+                        <outlet property="apiClient" destination="n3s-Xc-vcQ" id="tL3-KO-vuS"/>
+                        <outlet property="carImage" destination="C6F-7Q-KIm" id="5sb-fW-N4k"/>
+                        <outlet property="labelModel" destination="Qdr-OY-Yq6" id="hTx-HY-5eV"/>
+                        <outlet property="labelQuantity" destination="Znx-c9-mYb" id="teb-Ba-tge"/>
+                        <outlet property="labelSale" destination="w0T-MZ-5DO" id="kWg-7L-mze"/>
+                        <outlet property="labelTitle" destination="BiP-92-EBK" id="mAL-aP-g4r"/>
+                        <outlet property="textViewDescription" destination="kd0-aN-6Ti" id="Zzo-Rx-1fv"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="1737" y="48"/>
+            <point key="canvasLocation" x="1736.8" y="47.226386806596707"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Md-VV-vse">

@@ -15,6 +15,8 @@ class CarViewModel: NSObject {
     var carsList = [CarsModel]()
     var clientsList = [ClientsModel]()
     
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     //Adiciona cliente inicial
     func addClient(complete: @escaping AddComplete) {
         
@@ -45,5 +47,23 @@ class CarViewModel: NSObject {
         return carsList.count
     }
     
+    // start loading
+    func startloading(_ controller: ViewController)
+    {
+        activityIndicator.center = controller.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        controller.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+    }
+    
+    // stop loading
+    func stopLoading()
+    {
+        self.activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
     
 }

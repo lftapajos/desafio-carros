@@ -12,9 +12,19 @@ class DetailCarViewController: UIViewController {
 
     var carSeleced = [CarsModel]()
     
+    @IBOutlet var detailCarViewModel: DetailCarViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(carSeleced.first?.nome ?? "Carro")
+        
+        self.detailCarViewModel.startloading(self)
+        
+        self.detailCarViewModel.getCar(carSeleced.first!) {
+            
+            self.detailCarViewModel.setCarDetails(self.detailCarViewModel.carsList)
+            self.detailCarViewModel.stopLoading()
+        }
         
     }
 
