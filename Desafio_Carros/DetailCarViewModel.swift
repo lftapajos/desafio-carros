@@ -18,9 +18,11 @@ class DetailCarViewModel: NSObject {
     @IBOutlet weak var textViewDescription : UITextView!
     @IBOutlet weak var labelQuantity: UILabel!
     @IBOutlet weak var buttonAddCar: UIButton!
+    @IBOutlet weak var buttonRemoveCar: UIButton!
     
     var carsList = [CarsModel]()
     var client = ClientRealmModel()
+    var cars = CarRealmModel()
     var bucket = BucketRealmModel()
     
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
@@ -30,18 +32,49 @@ class DetailCarViewModel: NSObject {
         
         self.apiClient.downloadDetailCar(car) {
             self.carsList = self.apiClient._carsList
+            
+            //Se não baixar os dados, esconde botões de adicionar e subtrair
+            if (self.carsList.first?.quantidade == nil) {
+                self.buttonAddCar.isHidden = true
+                self.buttonRemoveCar.isHidden = true
+            }
             complete()
         }
+        
     }
     
     //Verifica se cliente possui itens na cesta de compras
     func getBucket() -> Bool {
+        
+        //Calcula saldo do cliente por possível cesta de compras
         let actualBucket = bucket.getBucket()
         
+        //Saldo atual do cliente
         let cli = client.getClient(EMAIL_CLIENT)
         let newSale = (cli.saldo - actualBucket.valor!)
         self.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: newSale))"
         
+        //Se os dados do carro forem encontrados
+        if (self.carsList.first?.id != nil) {
+            
+            //Recupera saldo substraido da cesta de compas
+            let actualCarBucket = bucket.getCarBucket("\((self.carsList.first?.id)!)")
+            
+            //Nova quantidade em estoque subtraindo a quantidade da cesta de compras
+            let newQuantity = ((self.carsList.first?.quantidade)! - actualCarBucket)
+            self.labelQuantity.text = "Quantidade: \(newQuantity)"
+            
+            //Atualiza lista de dados do carro selecionado, com a nova quantidade
+            self.carsList.first!.quantidade! = newQuantity
+            
+            //Se o carro selecionado está na cesta de compras, mostra botão de remover
+            if (actualCarBucket > 0) {
+                self.buttonRemoveCar.isHidden = false
+            }
+            
+        }
+        
+        //Retorna se existe um carrinho de compras ativo
         return actualBucket.isBucket!
         
     }
@@ -54,6 +87,7 @@ class DetailCarViewModel: NSObject {
         //Carrega os detalhes do carro seleciondo
         self.labelTitle.text = car.first?.nome
         
+        //Mostra a imagem do carro, caso exista
         if (car.first?.imagem != nil) {
             self.carImage.sd_setImage(with: URL(string: (car.first?.imagem)!))
         }
@@ -61,6 +95,7 @@ class DetailCarViewModel: NSObject {
         self.labelModel.text = car.first?.marca
         self.textViewDescription.text = car.first?.descricao
 
+        //Mostra a quantidade em estoque do carro, caso exista
         if (car.first?.quantidade != nil) {
             self.labelQuantity.text = "Quantidade: \(String(describing: car.first!.quantidade!))"
         }
@@ -117,15 +152,13 @@ class DetailCarViewModel: NSObject {
                 //Carrega nova quantidade
                 self.carsList.first!.quantidade! = carQuantity
                 
-                //Verifica se possui um carrinho ciado
+                //Verifica se possui um carrinho criado
                 if (getBucket()) {
                     
                     //Recupera detalhes do cliente, formata e carrega o saldo atual
-                    //self.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: client.saldo))"
-                    
                     self.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
+                    
                 }
-                
             }
             
         } else {

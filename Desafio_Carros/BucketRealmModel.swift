@@ -147,6 +147,23 @@ class BucketRealmModel {
         return cli
     }
     
+    //Recupera dados de um carro que está dentro do Carrinho
+    func getCarBucket(_ carBucketId: String) -> Int {
+        
+        let realm = try! Realm()
+        let car = CarBucketModel()
+        
+        car.quantidade = 0
+        
+        let bucketCar = realm.objects(ClientCars.self).filter("idCar = %@", carBucketId)
+        
+        for c in bucketCar {
+            car.quantidade = (Int(car.quantidade!) + Int(c.quantidade))
+        }
+        
+        return car.quantidade!
+    }
+    
     //Recupera dados do Carrinho
     func getBucketSale() -> Double {
         

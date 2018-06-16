@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wjf-6S-pSL" id="sGi-qW-lz6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOU-ET-B43">
@@ -182,7 +182,7 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znx-c9-mYb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znx-c9-mYb">
                                 <rect key="frame" x="16" y="395" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="MYJ-AE-8Cm"/>
@@ -207,6 +207,11 @@
                                 <connections>
                                     <action selector="addCarInBucket:" destination="JZT-yj-yc7" eventType="touchUpInside" id="Wej-VX-fIQ"/>
                                 </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYo-jW-LAI">
+                                <rect key="frame" x="118" y="462" width="131" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="REMOVER"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,6 +248,7 @@
                     <connections>
                         <outlet property="apiClient" destination="n3s-Xc-vcQ" id="tL3-KO-vuS"/>
                         <outlet property="buttonAddCar" destination="YKO-eX-1SI" id="FPg-e2-uwi"/>
+                        <outlet property="buttonRemoveCar" destination="MYo-jW-LAI" id="emP-4t-m5j"/>
                         <outlet property="carImage" destination="C6F-7Q-KIm" id="5sb-fW-N4k"/>
                         <outlet property="labelModel" destination="Qdr-OY-Yq6" id="hTx-HY-5eV"/>
                         <outlet property="labelQuantity" destination="Znx-c9-mYb" id="teb-Ba-tge"/>

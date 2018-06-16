@@ -80,7 +80,7 @@ class ClientRealmModel {
     }
     
     //Atualiza saldo do cliente
-    func atualizaSaldoCliente(_ id: String, novoSaldo: Double) {
+    func updateClientSale(_ id: String, newSale: Double) {
         
         let realm = try! Realm()
         
@@ -88,7 +88,7 @@ class ClientRealmModel {
         
         if let client = detailClient.first {
             try! realm.write {
-                client.saldo = novoSaldo
+                client.saldo = newSale
             }
         }
     }

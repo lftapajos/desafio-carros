@@ -59,4 +59,43 @@ class CarRealmModel {
             return false
         }
     }
+    
+    //Recupera dados do Carro
+    func getCar(_ id: Int) -> Car {
+        
+        let realm = try! Realm()
+        let car = Car()
+        
+        let detailCar = realm.objects(Car.self)
+        
+        let predicate = NSPredicate(format: "id = %@", id)
+        let filteredCar = detailCar.filter(predicate)
+        
+        for c in filteredCar {
+            
+            car.id = c.id
+            car.nome = c.nome
+            car.descricao = c.descricao
+            car.marca = c.marca
+            car.quantidade = c.quantidade
+            car.preco = c.preco
+            car.imagem = c.imagem
+            car.quantidadeCesta = c.quantidadeCesta
+        }
+        return car
+    }
+    
+    //Atualiza quantidade do Carro
+    func updateCarQuantity(_ id: Int, newQuantity: Int) {
+        
+        let realm = try! Realm()
+        
+        let detailCar = realm.objects(Car.self).filter("id = %@", id)
+        
+        if let car = detailCar.first {
+            try! realm.write {
+                car.quantidade = newQuantity
+            }
+        }
+    }
 }
