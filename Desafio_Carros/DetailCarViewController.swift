@@ -16,20 +16,22 @@ class DetailCarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
+        //Mostra loading
         self.detailCarViewModel.startloading(self)
-        //self.detailCarViewModel.getBucket()
-        //print(actualBucket.idBucket ?? "")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Recupera e carrega detalhes do carro selecionad
+        //Recupera e carrega detalhes do carro selecionado
         self.detailCarViewModel.getCar(carSeleced.first!) {
             
+            //Carrega detalhes
             self.detailCarViewModel.setCarDetails(self.detailCarViewModel.carsList)
+            
+            //Remove loading
             self.detailCarViewModel.stopLoading()
         }
     }

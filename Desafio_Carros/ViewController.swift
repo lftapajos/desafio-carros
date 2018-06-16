@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         //Mostra botão de carrinho de compras
         self.carViewModel.showBucket()
         
-        //Adiciona cliente
+        //Chama inserção de cliente
         self.carViewModel.addClient() {
             
             //Mostra mensagem de cliente inserido

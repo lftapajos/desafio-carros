@@ -12,15 +12,13 @@ class RectangleImage: UIImageView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.shadowColor = UIColor(red: SHADOW_GRY, green: SHADOW_GRY, blue: SHADOW_GRY, alpha: 0.6).cgColor
-        layer.shadowRadius = 2.0
-        clipsToBounds = true
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor(red:0.60, green:0.88, blue:0.96, alpha:1.0).cgColor
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = self.frame.width // 2
-        
+        layer.cornerRadius = 8
     }
 
 }
