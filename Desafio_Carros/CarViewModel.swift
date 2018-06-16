@@ -11,6 +11,7 @@ import UIKit
 class CarViewModel: NSObject {
     
     @IBOutlet weak var apiClient: APIClient!
+    @IBOutlet weak var buttonBucket: UIButton!
     
     var carsList = [CarsModel]()
     var clientsList = [ClientsModel]()
@@ -22,16 +23,24 @@ class CarViewModel: NSObject {
         
         //Cliente de teste criado com saldo de 100 mil reais para compra
         let client = ClientsModel()
+        
         client.id = UUID().uuidString
-        client.nome = "Jose"
-        client.email = "jose@gmail.com"
-        client.saldo = 100000
+        client.nome = NAME_CLIENT
+        client.email = EMAIL_CLIENT
+        client.saldo = SALE_CLIENT
         
         let confirm = ClientRealmModel().addClient(client)
         if (confirm) {
             complete()
         }
         
+    }
+    
+    //Verifica se cliente possui itens na cesta de compras
+    func showBucket() {
+        if (BucketRealmModel().verifyBucketExists() != "") {
+            self.buttonBucket.isHidden = false
+        }
     }
     
     //Recupera Carros

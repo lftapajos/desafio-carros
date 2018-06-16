@@ -108,11 +108,11 @@ class APIClient: NSObject {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 switch (response.result) {
                 case .success(let responseString):
-                    print(responseString)
+                    //print(responseString)
                     
                     //Conversão necessária devido à formatação do JSON
                     let json = "{\"results\": \(responseString)}"
-                    print(json)
+                    //print(json)
                     let carsResponse = CarResponse(JSONString:"\(json)")!
                     fullfil(carsResponse.carModelDetail!)
                 case .failure(let error):

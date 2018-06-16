@@ -56,7 +56,7 @@ class ClientRealmModel {
         }
     }
     
-    //Recupera ddos do Cliente
+    //Recupera dados do Cliente
     func getClient(_ email: String) -> Client {
         
         let realm = try! Realm()
@@ -79,6 +79,18 @@ class ClientRealmModel {
         return client
     }
     
+    //Atualiza saldo do cliente
+    func atualizaSaldoCliente(_ id: String, novoSaldo: Double) {
+        
+        let realm = try! Realm()
+        
+        let detailClient = realm.objects(Client.self).filter("id = %@", id)
+        
+        if let client = detailClient.first {
+            try! realm.write {
+                client.saldo = novoSaldo
+            }
+        }
+    }
+    
 }
-
-//let confirma = clienteModel.addCliente(nomeTextField.text!, email: emailTextField.text!, senha: senhaTextField.text!, saldo: 100000)

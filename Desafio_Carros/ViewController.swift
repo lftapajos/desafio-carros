@@ -26,11 +26,15 @@ class ViewController: UIViewController {
         carsTableView.delegate = self
         carsTableView.dataSource = self
         
+        //Download dos carros
         downloadCars()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //Mostra botão de carrinho de compras
+        self.carViewModel.showBucket()
         
         //Adiciona cliente
         self.carViewModel.addClient() {

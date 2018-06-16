@@ -32,3 +32,19 @@ class Car : Object {
     dynamic var imagem: String = ""
     dynamic var quantidadeCesta: Int = 0
 }
+
+// MARK: Modelo de Carrinho de Compras
+class Bucket : Object {
+    
+    dynamic var id: String = ""
+    dynamic var status: Bool = true
+}
+
+class ClientCars : Object {
+    
+    dynamic var idBucket: String = ""
+    dynamic var idClient: String = ""
+    dynamic var idCar: String = ""
+    dynamic var quantidade: Int = 0
+    dynamic var valor: Double = 0.0
+}
