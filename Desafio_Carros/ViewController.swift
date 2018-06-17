@@ -38,12 +38,7 @@ class ViewController: UIViewController {
         
         //Chama inserção de cliente
         self.carViewModel.addClient() {
-            
-            //Mostra mensagem de cliente inserido
-            Alert(controller: self).show(message: "Client add with success!", handler : { action in
-                self.navigationController?.popViewController(animated: true)
-            })
-            
+            self.carViewModel.showAlert(controller: self)
         }
     }
     

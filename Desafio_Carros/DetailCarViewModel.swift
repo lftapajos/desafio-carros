@@ -60,16 +60,19 @@ class DetailCarViewModel: NSObject {
             //Recupera saldo substraido da cesta de compas
             let actualCarBucket = bucket.getCarBucket("\((self.carsList.first?.id)!)")
             
-            //Nova quantidade em estoque subtraindo a quantidade da cesta de compras
-            let newQuantity = ((self.carsList.first?.quantidade)! - actualCarBucket)
-            self.labelQuantity.text = "Quantidade: \(newQuantity)"
-            
             //Atualiza lista de dados do carro selecionado, com a nova quantidade
-            self.carsList.first!.quantidade! = newQuantity
+            //self.carsList.first!.quantidade! = newQuantity
             
             //Se o carro selecionado está na cesta de compras, mostra botão de remover
             if (actualCarBucket > 0) {
+                
+                //Nova quantidade em estoque subtraindo a quantidade da cesta de compras
+                let newQuantity = ((self.carsList.first?.quantidade)! - actualCarBucket)
+                self.labelQuantity.text = "Quantidade: \(newQuantity)"
+                
                 self.buttonRemoveCar.isHidden = false
+            } else {
+                self.buttonRemoveCar.isHidden = true
             }
             
         }
@@ -143,10 +146,10 @@ class DetailCarViewModel: NSObject {
             clientCars.quantidade = 1
             clientCars.valor = carPrice
             
-            //Se foi possível adicionar o alterar os dados de compro do carro
+            //Se foi possível adicionar ou alterar os dados de compro do carro
             if (BucketRealmModel().addClientCars(clientCar: clientCars)) {
                 
-                //Subtrai a quantidadeatual
+                //Subtrai a quantidade atual
                 carQuantity = (actualQuantity - 1)
                 
                 //Carrega nova quantidade
@@ -167,7 +170,64 @@ class DetailCarViewModel: NSObject {
         
     }
     
-    // start loading
+    @IBAction func deleteCarInBucket(_ sender: Any) {
+        
+        //var carQuantity = 0
+        var carPrice = 0.0
+        
+        //Recupera o ID do Bucket
+        let bucketId = BucketRealmModel().verifyBucketExists()
+        
+        //Quantidade atual no estoque do carro selecionado
+        let actualQuantity = self.carsList.first!.quantidade!
+        
+        //Recupera dados do Cliente
+        let client = ClientRealmModel().getClient(EMAIL_CLIENT)
+        
+        //Saldo atual do cliente
+        let actualSale = BucketRealmModel().getBucketSale()
+        
+        //Verifica se o saldo é menor que saldo inciial do cliente
+        if (actualSale < SALE_CLIENT) {
+            
+            //Recupera o preço de compra do carro
+            carPrice = self.carsList.first!.preco!
+            
+            //Salva os dados do carro para o cliente no carrinho de compras
+            let clientCars = ClientCarsModel()
+            clientCars.idBucket = bucketId
+            clientCars.idClient = client.id
+            clientCars.idCar = "\(String(describing: self.carsList.first!.id!))"
+            clientCars.quantidade = 1
+            clientCars.valor = carPrice
+            
+            //Se foi possível deletar os dados de compra do carro
+            if (BucketRealmModel().deleteClientCars(clientCar: clientCars)) {
+                
+                //Adiciona a quantidade nova
+                let carQuantity = (actualQuantity + 1)
+                
+                //Carrega nova quantidade
+                self.carsList.first!.quantidade! = actualQuantity
+
+                //Verifica se possui um carrinho criado
+                if (getBucket()) {
+                    
+                    //Recupera detalhes do cliente, formata e carrega o saldo atual
+                    self.labelQuantity.text = "Quantidade: \(String(describing: actualQuantity))"
+                    
+                } else {
+                    //Recupera detalhes do cliente, formata e carrega o saldo atual
+                    self.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
+                }
+            }
+        } else {
+            print("Saldo insuficiente!")
+        }
+        
+    }
+    
+    //Mostra loading
     func startloading(_ controller: DetailCarViewController)
     {
         activityIndicator.center = controller.view.center
@@ -178,7 +238,7 @@ class DetailCarViewModel: NSObject {
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
-    // stop loading
+    //Remove loading
     func stopLoading()
     {
         self.activityIndicator.stopAnimating()

@@ -89,6 +89,30 @@ class BucketRealmModel {
         return retorno
     }
     
+    //Deleta Carro para Cliente no Carrinho de Compras do Realm
+    func deleteClientCars(clientCar: ClientCarsModel) -> Bool {
+        
+        let newClientCar = ClientCars()
+        var retorno = false
+        
+        newClientCar.idBucket = clientCar.idBucket!
+        newClientCar.idClient = clientCar.idClient!
+        newClientCar.idCar = clientCar.idCar!
+        newClientCar.quantidade = clientCar.quantidade!
+        newClientCar.valor = clientCar.valor!
+        
+        //Verifica se possui saldo par aa compra
+        let sale = getBucketSale()
+        if (sale < SALE_CLIENT) {
+            //Se já existe o carro adicionado para o Cliente no Carrinho, atualiza a quantidade e o valor
+            deleteClientCar(newClientCar)
+            retorno = true
+        } else {
+            retorno = false
+        }
+        return retorno
+    }
+    
     //Verifica se o Carrinho de Compras já possui o Carro adicionado para ao Cliente
     func verifyClientCarExists(_ clientCar: ClientCars) -> Bool {
         
@@ -108,7 +132,7 @@ class BucketRealmModel {
         }
     }
     
-    //Atualiza saldo do cliente
+    //Adiciona saldo do cliente
     func updateClientCar(_ clientCar: ClientCars) {
         
         let realm = try! Realm()
@@ -122,6 +146,41 @@ class BucketRealmModel {
             }
         }
     }
+    
+    //Remove saldo do cliente
+    func deleteClientCar(_ clientCar: ClientCars) {
+        
+        let realm = try! Realm()
+        
+        let cliCar = realm.objects(ClientCars.self).filter("idBucket = %@ AND idClient = %@ AND idCar = %@", clientCar.idBucket, clientCar.idClient, clientCar.idCar)
+        
+        if let deleteClientCar = cliCar.first {
+            try! realm.write {
+                deleteClientCar.quantidade -= clientCar.quantidade
+                deleteClientCar.valor -= clientCar.valor
+                
+                //Se o novo valor for igual a zero, deve escluir o carro da cesta de compras
+                if (deleteClientCar.valor == 0) {
+                    
+                    //removeClientCarBucket(clientCar)
+                    realm.delete(cliCar)
+                }
+            }
+        }
+    }
+    
+//    //Remove carro da cesta de compras
+//    func removeClientCarBucket(_ clientCar: ClientCars) {
+//        
+//        let realm = try! Realm()
+//        
+//        let cliCar = realm.objects(ClientCars.self).filter("idBucket = %@ AND idClient = %@ AND idCar = %@", clientCar.idBucket, clientCar.idClient, clientCar.idCar)
+//        
+//        try! realm.write {
+//            realm.delete(cliCar)
+//        }
+//        
+//    }
     
     //Recupera dados do Carrinho
     func getBucket() -> BucketSaleModel {

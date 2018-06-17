@@ -56,7 +56,7 @@ class CarViewModel: NSObject {
         return carsList.count
     }
     
-    // start loading
+    //Mostra loading
     func startloading(_ controller: ViewController)
     {
         activityIndicator.center = controller.view.center
@@ -68,11 +68,17 @@ class CarViewModel: NSObject {
         
     }
     
-    // stop loading
+    //Remove loading
     func stopLoading()
     {
         self.activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
+    func showAlert(controller: ViewController) {
+        //Mostra mensagem de cliente inserido
+        Alert(controller: controller).show(message: "Client add with success!", handler : { action in
+            controller.navigationController?.popViewController(animated: true)
+        })
+    }
 }
