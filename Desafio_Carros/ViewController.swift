@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var carsTableView: UITableView!
     @IBOutlet var carViewModel: CarViewModel!
+    @IBOutlet weak var buttonBucket: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +24,19 @@ class ViewController: UIViewController {
         //print("App Path: \(dirPaths)")
         
         self.carViewModel.startloading(self)
+        
         carsTableView.delegate = self
         carsTableView.dataSource = self
         
-        //Download dos carros
+        //Chama download dos carros
         downloadCars()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Mostra botão de carrinho de compras
-        self.carViewModel.showBucket()
+        //Mostra botão de carrinho de compras caso exista um carrinho ativo
+        self.buttonBucket.isHidden = self.carViewModel.showBucket()
         
         //Chama inserção de cliente
         self.carViewModel.addClient() {
@@ -42,6 +44,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Carrega download dos carros
     func downloadCars(){
         self.carViewModel.getCars {
             self.carsModel = Array(self.carViewModel.carsList)
@@ -49,6 +52,11 @@ class ViewController: UIViewController {
             self.carViewModel.stopLoading()
             self.carsTableView.reloadData()
         }
+    }
+    
+    //Função para Mostrar cesta de compras
+    @IBAction func showBucket(_ sender: Any) {
+        self.carViewModel.callBucketViewController(self)
     }
     
     override func didReceiveMemoryWarning() {

@@ -11,7 +11,6 @@ import UIKit
 class CarViewModel: NSObject {
     
     @IBOutlet weak var apiClient: APIClient!
-    @IBOutlet weak var buttonBucket: UIButton!
     
     var carsList = [CarsModel]()
     var clientsList = [ClientsModel]()
@@ -37,10 +36,12 @@ class CarViewModel: NSObject {
     }
     
     //Verifica se cliente possui itens na cesta de compras
-    func showBucket() {
+    func showBucket() -> Bool {
+        var retorno = true
         if (BucketRealmModel().verifyBucketExists() != "") {
-            self.buttonBucket.isHidden = false
+            retorno = false
         }
+        return retorno
     }
     
     //Recupera Carros
@@ -80,5 +81,12 @@ class CarViewModel: NSObject {
         Alert(controller: controller).show(message: "Client add with success!", handler : { action in
             controller.navigationController?.popViewController(animated: true)
         })
+    }
+    
+    //Função para chamar a View de carrinho
+    func callBucketViewController(_ controller: ViewController) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let bucketViewController = storyboard.instantiateViewController(withIdentifier: "BucketViewController") as! BucketViewController
+        controller.navigationController?.pushViewController(bucketViewController, animated: true)
     }
 }

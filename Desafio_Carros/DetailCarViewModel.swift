@@ -11,14 +11,6 @@ import UIKit
 class DetailCarViewModel: NSObject {
 
     @IBOutlet weak var apiClient: APIClient!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelSale: UILabel!
-    @IBOutlet weak var carImage: RectangleImage!
-    @IBOutlet weak var labelModel: UILabel!
-    @IBOutlet weak var textViewDescription : UITextView!
-    @IBOutlet weak var labelQuantity: UILabel!
-    @IBOutlet weak var buttonAddCar: UIButton!
-    @IBOutlet weak var buttonRemoveCar: UIButton!
     
     var carsList = [CarsModel]()
     var client = ClientRealmModel()
@@ -28,15 +20,16 @@ class DetailCarViewModel: NSObject {
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     //Recupera Carro
-    func getCar(_ car: CarsModel, complete: @escaping DownloadComplete) {
+    func getCar(_ car: CarsModel, controller: DetailCarViewController, complete: @escaping DownloadComplete) {
         
         self.apiClient.downloadDetailCar(car) {
             self.carsList = self.apiClient._carsList
             
             //Se não baixar os dados, esconde botões de adicionar e subtrair
             if (self.carsList.first?.quantidade == nil) {
-                self.buttonAddCar.isHidden = true
-                self.buttonRemoveCar.isHidden = true
+                controller.buttonAddCar.isHidden = true
+                controller.buttonRemoveCar.isHidden = true
+                controller.buttonShowBucket.isHidden = true
             }
             complete()
         }
@@ -44,7 +37,7 @@ class DetailCarViewModel: NSObject {
     }
     
     //Verifica se cliente possui itens na cesta de compras
-    func getBucket() -> Bool {
+    func getBucket(_ controller: DetailCarViewController) -> Bool {
         
         //Calcula saldo do cliente por possível cesta de compras
         let actualBucket = bucket.getBucket()
@@ -52,7 +45,7 @@ class DetailCarViewModel: NSObject {
         //Saldo atual do cliente
         let cli = client.getClient(EMAIL_CLIENT)
         let newSale = (cli.saldo - actualBucket.valor!)
-        self.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: newSale))"
+        controller.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: newSale))"
         
         //Se os dados do carro forem encontrados
         if (self.carsList.first?.id != nil) {
@@ -68,11 +61,13 @@ class DetailCarViewModel: NSObject {
                 
                 //Nova quantidade em estoque subtraindo a quantidade da cesta de compras
                 let newQuantity = ((self.carsList.first?.quantidade)! - actualCarBucket)
-                self.labelQuantity.text = "Quantidade: \(newQuantity)"
+                controller.labelQuantity.text = "Quantidade: \(newQuantity)"
                 
-                self.buttonRemoveCar.isHidden = false
+                controller.buttonRemoveCar.isHidden = false
+                controller.buttonShowBucket.isHidden = false
             } else {
-                self.buttonRemoveCar.isHidden = true
+                controller.buttonRemoveCar.isHidden = true
+                controller.buttonShowBucket.isHidden = true
             }
             
         }
@@ -83,34 +78,34 @@ class DetailCarViewModel: NSObject {
     }
     
     //Carrega detalhes do Carro
-    func setCarDetails(_ car: [CarsModel]) {
+    func setCarDetails(_ car: [CarsModel], controller: DetailCarViewController) {
         
         self.carsList = car
         
         //Carrega os detalhes do carro seleciondo
-        self.labelTitle.text = car.first?.nome
+        controller.labelTitle.text = car.first?.nome
         
         //Mostra a imagem do carro, caso exista
         if (car.first?.imagem != nil) {
-            self.carImage.sd_setImage(with: URL(string: (car.first?.imagem)!))
+            controller.carImage.sd_setImage(with: URL(string: (car.first?.imagem)!))
         }
         
-        self.labelModel.text = car.first?.marca
-        self.textViewDescription.text = car.first?.descricao
+        controller.labelModel.text = car.first?.marca
+        controller.textViewDescription.text = car.first?.descricao
 
         //Mostra a quantidade em estoque do carro, caso exista
         if (car.first?.quantidade != nil) {
-            self.labelQuantity.text = "Quantidade: \(String(describing: car.first!.quantidade!))"
+            controller.labelQuantity.text = "Quantidade: \(String(describing: car.first!.quantidade!))"
         }
         
-        if (!getBucket()) {
+        if (!getBucket(controller)) {
             //Recupera detalhes do cliente, formata e carrega o saldo atual
             let cli = client.getClient(EMAIL_CLIENT)
-            self.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: cli.saldo))"
+            controller.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: cli.saldo))"
         }
     }
     
-    @IBAction func addCarInBucket(_ sender: Any) {
+    func addCarInBucket(_ controller: DetailCarViewController) {
         
         let bucket = Bucket()
         bucket.id = UUID().uuidString
@@ -156,10 +151,10 @@ class DetailCarViewModel: NSObject {
                 self.carsList.first!.quantidade! = carQuantity
                 
                 //Verifica se possui um carrinho criado
-                if (getBucket()) {
+                if (getBucket(controller)) {
                     
                     //Recupera detalhes do cliente, formata e carrega o saldo atual
-                    self.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
+                    controller.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
                     
                 }
             }
@@ -170,7 +165,7 @@ class DetailCarViewModel: NSObject {
         
     }
     
-    @IBAction func deleteCarInBucket(_ sender: Any) {
+    func deleteCarInBucket(_ controller: DetailCarViewController) {
         
         //var carQuantity = 0
         var carPrice = 0.0
@@ -211,20 +206,32 @@ class DetailCarViewModel: NSObject {
                 self.carsList.first!.quantidade! = actualQuantity
 
                 //Verifica se possui um carrinho criado
-                if (getBucket()) {
+                if (getBucket(controller)) {
                     
                     //Recupera detalhes do cliente, formata e carrega o saldo atual
-                    self.labelQuantity.text = "Quantidade: \(String(describing: actualQuantity))"
+                    controller.labelQuantity.text = "Quantidade: \(String(describing: actualQuantity))"
                     
                 } else {
                     //Recupera detalhes do cliente, formata e carrega o saldo atual
-                    self.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
+                    controller.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
                 }
             }
         } else {
             print("Saldo insuficiente!")
         }
         
+    }
+    
+    //Função para Retornar para a View de lista de carros
+    func callReturnViewController(_ controller: DetailCarViewController) {
+        controller.navigationController?.popViewController(animated: true)
+    }
+    
+    //Função para chamar a View de carrinho
+    func callBucketViewController(_ controller: DetailCarViewController) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let bucketViewController = storyboard.instantiateViewController(withIdentifier: "BucketViewController") as! BucketViewController
+        controller.navigationController?.pushViewController(bucketViewController, animated: true)
     }
     
     //Mostra loading

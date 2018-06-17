@@ -16,6 +16,8 @@
 		6999D17620D4545B00DC05EE /* item_compra.png in Resources */ = {isa = PBXBuildFile; fileRef = 6999D17520D4545B00DC05EE /* item_compra.png */; };
 		6999D17820D45FEE00DC05EE /* BucketSaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D17720D45FEE00DC05EE /* BucketSaleModel.swift */; };
 		6999D17A20D508D800DC05EE /* CarBucketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D17920D508D800DC05EE /* CarBucketModel.swift */; };
+		6999D17C20D64F1E00DC05EE /* BucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D17B20D64F1E00DC05EE /* BucketViewController.swift */; };
+		6999D17E20D651A900DC05EE /* BucketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D17D20D651A900DC05EE /* BucketViewModel.swift */; };
 		69DA48F820D2EF9E0071206B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA48F720D2EF9E0071206B /* AppDelegate.swift */; };
 		69DA48FA20D2EF9E0071206B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA48F920D2EF9E0071206B /* ViewController.swift */; };
 		69DA48FD20D2EF9E0071206B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DA48FB20D2EF9E0071206B /* Main.storyboard */; };
@@ -67,6 +69,8 @@
 		6999D17520D4545B00DC05EE /* item_compra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_compra.png; sourceTree = "<group>"; };
 		6999D17720D45FEE00DC05EE /* BucketSaleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketSaleModel.swift; sourceTree = "<group>"; };
 		6999D17920D508D800DC05EE /* CarBucketModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarBucketModel.swift; sourceTree = "<group>"; };
+		6999D17B20D64F1E00DC05EE /* BucketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketViewController.swift; sourceTree = "<group>"; };
+		6999D17D20D651A900DC05EE /* BucketViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketViewModel.swift; sourceTree = "<group>"; };
 		69DA48F420D2EF9E0071206B /* Desafio_Carros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desafio_Carros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DA48F720D2EF9E0071206B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69DA48F920D2EF9E0071206B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			children = (
 				69DA494D20D34FB00071206B /* CarViewModel.swift */,
 				69DA495120D367CE0071206B /* DetailCarViewModel.swift */,
+				6999D17D20D651A900DC05EE /* BucketViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			children = (
 				69DA48F920D2EF9E0071206B /* ViewController.swift */,
 				69DA493D20D32AF10071206B /* DetailCarViewController.swift */,
+				6999D17B20D64F1E00DC05EE /* BucketViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -596,8 +602,10 @@
 				6999D17120D4095F00DC05EE /* BucketRealmModel.swift in Sources */,
 				69DA493820D313B20071206B /* CarTableViewCell.swift in Sources */,
 				6999D16F20D3A44F00DC05EE /* Help.swift in Sources */,
+				6999D17E20D651A900DC05EE /* BucketViewModel.swift in Sources */,
 				69DA494120D3388E0071206B /* AllRealmObjects.swift in Sources */,
 				69DA493E20D32AF10071206B /* DetailCarViewController.swift in Sources */,
+				6999D17C20D64F1E00DC05EE /* BucketViewController.swift in Sources */,
 				6999D17820D45FEE00DC05EE /* BucketSaleModel.swift in Sources */,
 				69DA494E20D34FB00071206B /* CarViewModel.swift in Sources */,
 				6999D17A20D508D800DC05EE /* CarBucketModel.swift in Sources */,

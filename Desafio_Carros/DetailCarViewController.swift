@@ -14,6 +14,16 @@ class DetailCarViewController: UIViewController {
     
     @IBOutlet var detailCarViewModel: DetailCarViewModel!
     
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelSale: UILabel!
+    @IBOutlet weak var carImage: RectangleImage!
+    @IBOutlet weak var labelModel: UILabel!
+    @IBOutlet weak var textViewDescription : UITextView!
+    @IBOutlet weak var labelQuantity: UILabel!
+    @IBOutlet weak var buttonAddCar: UIButton!
+    @IBOutlet weak var buttonRemoveCar: UIButton!
+    @IBOutlet weak var buttonShowBucket: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -26,20 +36,34 @@ class DetailCarViewController: UIViewController {
         super.viewDidAppear(animated)
         
         //Recupera e carrega detalhes do carro selecionado
-        self.detailCarViewModel.getCar(carSeleced.first!) {
+        self.detailCarViewModel.getCar(carSeleced.first!, controller: self) {
             
             //Carrega detalhes
-            self.detailCarViewModel.setCarDetails(self.detailCarViewModel.carsList)
+            self.detailCarViewModel.setCarDetails(self.detailCarViewModel.carsList, controller: self)
             
             //Remove loading
             self.detailCarViewModel.stopLoading()
         }
     }
 
+    //Função para Mostrar cesta de compras
+    @IBAction func showBucket(_ sender: Any) {
+        self.detailCarViewModel.callBucketViewController(self)
+    }
+    
+    //Função para Adicionar carro na cesta de compras
+    @IBAction func addCarBucket(_ sender: Any) {
+        self.detailCarViewModel.addCarInBucket(self)
+    }
+    
+    //Função para Remover carro na cesta de compras
+    @IBAction func deleteCarBucket(_ sender: Any) {
+        self.detailCarViewModel.deleteCarInBucket(self)
+    }
+
+    //Função para chamar retorno
     @IBAction func retornar(_ sender: Any) {
-        if let navigation = navigationController {
-            navigation.popViewController(animated: true)
-        }
+        self.detailCarViewModel.callReturnViewController(self)
     }
     
     override func didReceiveMemoryWarning() {

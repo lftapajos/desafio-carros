@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550868972.435977"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "getBucket()"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,12 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "setCarDetails(_:)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "setCarDetails(_:controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,12 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "setCarDetails(_:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "setCarDetails(_:controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -218,12 +218,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "getBucket()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,12 +538,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550868972.435977"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "getBucket()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -714,12 +714,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "getBucket()"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -762,12 +762,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550868972.435977"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "getCar(_:complete:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getCar(_:controller:complete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -778,12 +778,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550868972.435977"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "getCar(_:complete:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getCar(_:controller:complete:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "addCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -842,12 +842,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550868946.945967"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getCar(_:complete:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getCar(_:controller:complete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -858,12 +858,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550869072.078765"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "getCar(_:complete:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getCar(_:controller:complete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -954,11 +954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -970,11 +970,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -986,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1002,11 +1002,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1018,11 +1018,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1034,11 +1034,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550895279.695557"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1050,11 +1050,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1162,11 +1162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "deleteCarInBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1193,13 +1193,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Desafio_Carros/DetailCarViewController.swift"
-            timestampString = "550893911.323934"
+            filePath = "Desafio_Carros/DetailCarViewModel.swift"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "setCarDetails(_:controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1210,12 +1210,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "setCarDetails(_:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "setCarDetails(_:controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1226,12 +1226,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "setCarDetails(_:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "setCarDetails(_:controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1242,12 +1242,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894209.105444"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "setCarDetails(_:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1258,12 +1258,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894032.81459"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "getBucket()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1274,28 +1274,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894190.386277"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "getBucket()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550894505.225168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "getBucket()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "getBucket(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1338,12 +1322,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Desafio_Carros/DetailCarViewModel.swift"
-            timestampString = "550895252.4663579"
+            timestampString = "550920107.505103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "deleteCarInBucket(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Desafio_Carros/DetailCarViewModel.swift"
+            timestampString = "550920107.505103"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "callBucketViewController(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -98,6 +98,9 @@
                                     <constraint firstAttribute="height" constant="48" id="8xt-D9-8dO"/>
                                 </constraints>
                                 <state key="normal" image="item_compra.png"/>
+                                <connections>
+                                    <action selector="showBucket:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LjY-ho-izD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -116,6 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xju-yP-uJD"/>
                     <connections>
+                        <outlet property="buttonBucket" destination="dCr-AH-PLo" id="c3E-g9-JRt"/>
                         <outlet property="carViewModel" destination="zAI-Zv-h2b" id="F6w-F7-Um9"/>
                         <outlet property="carsTableView" destination="pdU-SF-2sR" id="XWF-zc-ges"/>
                     </connections>
@@ -125,7 +129,6 @@
                 <customObject id="zAI-Zv-h2b" customClass="CarViewModel" customModule="Desafio_Carros" customModuleProvider="target">
                     <connections>
                         <outlet property="apiClient" destination="Nj9-Fq-SdF" id="uZ2-vU-LGU"/>
-                        <outlet property="buttonBucket" destination="dCr-AH-PLo" id="3yc-Go-3wk"/>
                     </connections>
                 </customObject>
             </objects>
@@ -204,7 +207,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ADICIONAR"/>
                                 <connections>
-                                    <action selector="addCarInBucket:" destination="JZT-yj-yc7" eventType="touchUpInside" id="Wej-VX-fIQ"/>
+                                    <action selector="addCarBucket:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="Qqj-Ws-im7"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYo-jW-LAI">
@@ -212,7 +215,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="REMOVER"/>
                                 <connections>
-                                    <action selector="deleteCarInBucket:" destination="JZT-yj-yc7" eventType="touchUpInside" id="9YK-Ni-rvK"/>
+                                    <action selector="deleteCarBucket:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="kfu-4j-c3n"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rE9-dH-81t">
+                                <rect key="frame" x="118" y="500" width="131" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CARRINHO"/>
+                                <connections>
+                                    <action selector="showBucket:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="n6e-Dr-g1W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -241,7 +252,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonAddCar" destination="YKO-eX-1SI" id="QCw-GM-fO8"/>
+                        <outlet property="buttonRemoveCar" destination="MYo-jW-LAI" id="jla-ze-xBV"/>
+                        <outlet property="buttonShowBucket" destination="rE9-dH-81t" id="WUN-0z-qPl"/>
+                        <outlet property="carImage" destination="C6F-7Q-KIm" id="0gA-9q-kLh"/>
                         <outlet property="detailCarViewModel" destination="JZT-yj-yc7" id="VGY-RR-wx4"/>
+                        <outlet property="labelModel" destination="Qdr-OY-Yq6" id="i62-pz-IxK"/>
+                        <outlet property="labelQuantity" destination="Znx-c9-mYb" id="gop-Md-vVa"/>
+                        <outlet property="labelSale" destination="w0T-MZ-5DO" id="kfv-f4-4Ke"/>
+                        <outlet property="labelTitle" destination="BiP-92-EBK" id="skL-7t-VaX"/>
+                        <outlet property="textViewDescription" destination="kd0-aN-6Ti" id="r0T-1R-bIH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxq-8f-EnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,18 +269,50 @@
                 <customObject id="JZT-yj-yc7" customClass="DetailCarViewModel" customModule="Desafio_Carros" customModuleProvider="target">
                     <connections>
                         <outlet property="apiClient" destination="n3s-Xc-vcQ" id="tL3-KO-vuS"/>
-                        <outlet property="buttonAddCar" destination="YKO-eX-1SI" id="FPg-e2-uwi"/>
-                        <outlet property="buttonRemoveCar" destination="MYo-jW-LAI" id="emP-4t-m5j"/>
-                        <outlet property="carImage" destination="C6F-7Q-KIm" id="5sb-fW-N4k"/>
-                        <outlet property="labelModel" destination="Qdr-OY-Yq6" id="hTx-HY-5eV"/>
-                        <outlet property="labelQuantity" destination="Znx-c9-mYb" id="teb-Ba-tge"/>
-                        <outlet property="labelSale" destination="w0T-MZ-5DO" id="kWg-7L-mze"/>
-                        <outlet property="labelTitle" destination="BiP-92-EBK" id="mAL-aP-g4r"/>
-                        <outlet property="textViewDescription" destination="kd0-aN-6Ti" id="Zzo-Rx-1fv"/>
                     </connections>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1736.8" y="47.226386806596707"/>
+        </scene>
+        <!--Bucket View Controller-->
+        <scene sceneID="Ar7-7i-geW">
+            <objects>
+                <viewController storyboardIdentifier="BucketViewController" id="5Gd-Nu-Jcz" customClass="BucketViewController" customModule="Desafio_Carros" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bWk-Zq-LXs"/>
+                        <viewControllerLayoutGuide type="bottom" id="RDN-mp-Hv0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="chu-FG-8NP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tk-ID-Mnk">
+                                <rect key="frame" x="16" y="20" width="41" height="30"/>
+                                <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <action selector="retornar:" destination="5Gd-Nu-Jcz" eventType="touchUpInside" id="lgX-nF-IKv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7tk-ID-Mnk" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" id="N0Y-sp-zE7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="7tk-ID-Mnk" secondAttribute="leading" id="db8-G4-VmZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bucketViewModel" destination="nVA-HI-epA" id="gGh-2K-G4V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMg-z2-eLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="cxW-gz-oUa" userLabel="APIClient" customClass="APIClient" customModule="Desafio_Carros" customModuleProvider="target"/>
+                <customObject id="nVA-HI-epA" customClass="BucketViewModel" customModule="Desafio_Carros" customModuleProvider="target">
+                    <connections>
+                        <outlet property="apiClient" destination="cxW-gz-oUa" id="VOw-AL-uiU"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="2495" y="47"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Md-VV-vse">
