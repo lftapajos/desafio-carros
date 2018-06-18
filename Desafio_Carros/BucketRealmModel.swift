@@ -56,16 +56,28 @@ class BucketRealmModel {
     }
     
     //Adiciona Carro para Cliente no Carrinho de Compras do Realm
-    func addClientCars(clientCar: ClientCarsModel) -> Bool {
+    func addClientCars(clientCar: ClientCarsModel, car: [CarsModel]) -> Bool {
         
         let newClientCar = ClientCars()
+        let newCar = Car()
         var retorno = false
         
+        //Armazena dados da cesta
         newClientCar.idBucket = clientCar.idBucket!
         newClientCar.idClient = clientCar.idClient!
         newClientCar.idCar = clientCar.idCar!
         newClientCar.quantidade = clientCar.quantidade!
         newClientCar.valor = clientCar.valor!
+        
+        //Armazena dados do carro inserido
+        newCar.id = (car.first?.id!)!
+        newCar.nome = (car.first?.nome!)!
+        newCar.descricao = (car.first?.descricao!)!
+        newCar.marca = (car.first?.marca!)!
+        newCar.quantidade = (car.first?.quantidade!)!
+        newCar.preco = (car.first?.preco!)!
+        newCar.imagem = (car.first?.imagem!)!
+        //newCar.quantidadeCesta = (car.first?.quantidadeCesta!)!
         
         let realm = try! Realm()
         
@@ -74,12 +86,14 @@ class BucketRealmModel {
         if (sale > 0) {
             if (verifyClientCarExists(newClientCar)) {
                 //Se já existe o carro adicionado para o Cliente no Carrinho, atualiza a quantidade e o valor
-                updateClientCar(newClientCar)
+                updateClientCar(newClientCar, car: newCar)
                 retorno = true
             } else {
                 try! realm.write {
                     realm.add(newClientCar)
                     print("ClientCar added with success in Realm.")
+                    realm.add(newCar)
+                    print("Car added with success in Realm.")
                     retorno = true
                 }
             }
@@ -90,22 +104,34 @@ class BucketRealmModel {
     }
     
     //Deleta Carro para Cliente no Carrinho de Compras do Realm
-    func deleteClientCars(clientCar: ClientCarsModel) -> Bool {
+    func deleteClientCars(clientCar: ClientCarsModel, car: [CarsModel]) -> Bool {
         
         let newClientCar = ClientCars()
+        let newCar = Car()
         var retorno = false
         
+        //Armazena dados da cesta
         newClientCar.idBucket = clientCar.idBucket!
         newClientCar.idClient = clientCar.idClient!
         newClientCar.idCar = clientCar.idCar!
         newClientCar.quantidade = clientCar.quantidade!
         newClientCar.valor = clientCar.valor!
         
+        //Armazena dados do carro a ser excluido
+        newCar.id = (car.first?.id!)!
+        newCar.nome = (car.first?.nome!)!
+        newCar.descricao = (car.first?.descricao!)!
+        newCar.marca = (car.first?.marca!)!
+        newCar.quantidade = (car.first?.quantidade!)!
+        newCar.preco = (car.first?.preco!)!
+        newCar.imagem = (car.first?.imagem!)!
+        
         //Verifica se possui saldo par aa compra
         let sale = getBucketSale()
         if (sale < SALE_CLIENT) {
             //Se já existe o carro adicionado para o Cliente no Carrinho, atualiza a quantidade e o valor
             deleteClientCar(newClientCar)
+            deleteCar(newCar)
             retorno = true
         } else {
             retorno = false
@@ -133,16 +159,25 @@ class BucketRealmModel {
     }
     
     //Adiciona saldo do cliente
-    func updateClientCar(_ clientCar: ClientCars) {
+    func updateClientCar(_ clientCar: ClientCars, car: Car) {
         
         let realm = try! Realm()
         
+        //Atualiza valores na cesta
         let cliCar = realm.objects(ClientCars.self).filter("idBucket = %@ AND idClient = %@ AND idCar = %@", clientCar.idBucket, clientCar.idClient, clientCar.idCar)
         
         if let updateClientCar = cliCar.first {
             try! realm.write {
                 updateClientCar.quantidade += clientCar.quantidade
                 updateClientCar.valor += clientCar.valor
+            }
+        }
+        
+        //Atualiza a quantidade em estoque do carro
+        let aCar = realm.objects(Car.self).filter("id = %@", car.id)
+        if let updateACar = aCar.first {
+            try! realm.write {
+                updateACar.quantidade -= (aCar.first?.quantidade)!
             }
         }
     }
@@ -162,26 +197,25 @@ class BucketRealmModel {
                 //Se o novo valor for igual a zero, deve escluir o carro da cesta de compras
                 if (deleteClientCar.valor == 0) {
                     
-                    //removeClientCarBucket(clientCar)
                     realm.delete(cliCar)
                 }
             }
         }
     }
     
-//    //Remove carro da cesta de compras
-//    func removeClientCarBucket(_ clientCar: ClientCars) {
-//        
-//        let realm = try! Realm()
-//        
-//        let cliCar = realm.objects(ClientCars.self).filter("idBucket = %@ AND idClient = %@ AND idCar = %@", clientCar.idBucket, clientCar.idClient, clientCar.idCar)
-//        
-//        try! realm.write {
-//            realm.delete(cliCar)
-//        }
-//        
-//    }
-    
+    //Remove Quantidade
+    func deleteCar(_ clientCar: Car) {
+        
+        let realm = try! Realm()
+        
+        let cliCar = realm.objects(Car.self).filter("id = %@", clientCar.id)
+        
+        if let deleteClientCar = cliCar.first {
+            try! realm.write {
+                deleteClientCar.quantidade += clientCar.quantidade
+            }
+        }
+    }
     //Recupera dados do Carrinho
     func getBucket() -> BucketSaleModel {
         
@@ -206,7 +240,7 @@ class BucketRealmModel {
         return cli
     }
     
-    //Recupera dados de um carro que está dentro do Carrinho
+    //Recupera quantidade de um carro que está dentro do Carrinho
     func getCarBucket(_ carBucketId: String) -> Int {
         
         let realm = try! Realm()
@@ -223,7 +257,26 @@ class BucketRealmModel {
         return car.quantidade!
     }
     
-    //Recupera dados do Carrinho
+    //Recupera quantidade de um carro que está dentro do Carrinho
+    func getAllCarBucket(_ id: Int) -> [CarBucketModel] {
+        
+        let realm = try! Realm()
+        let car = CarBucketModel()
+        
+        let bucketCar = realm.objects(Car.self).filter("id = %@", id)
+        
+        for c in bucketCar {
+            car.id = c.id
+            car.nome = c.nome
+            car.imagem = c.imagem
+            car.quantidade = c.quantidade
+            car.preco = c.preco
+        }
+        
+        return [car]
+    }
+    
+    //Recupera saldo do Carrinho
     func getBucketSale() -> Double {
         
         let realm = try! Realm()
@@ -240,5 +293,15 @@ class BucketRealmModel {
         }
         
         return cli.valor!
+    }
+    
+    //Recupera Todos os dados dos carros da cesta de compras
+    func getAllBucket() -> [Car] {
+        
+        let realm = try! Realm()
+        let bucketRealm = realm.objects(Car.self)
+  
+        let bucketList = Array(bucketRealm)
+        return bucketList
     }
 }

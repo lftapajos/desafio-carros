@@ -142,7 +142,7 @@ class DetailCarViewModel: NSObject {
             clientCars.valor = carPrice
             
             //Se foi possível adicionar ou alterar os dados de compro do carro
-            if (BucketRealmModel().addClientCars(clientCar: clientCars)) {
+            if (BucketRealmModel().addClientCars(clientCar: clientCars, car: self.carsList)) {
                 
                 //Subtrai a quantidade atual
                 carQuantity = (actualQuantity - 1)
@@ -197,7 +197,7 @@ class DetailCarViewModel: NSObject {
             clientCars.valor = carPrice
             
             //Se foi possível deletar os dados de compra do carro
-            if (BucketRealmModel().deleteClientCars(clientCar: clientCars)) {
+            if (BucketRealmModel().deleteClientCars(clientCar: clientCars, car: self.carsList)) {
                 
                 //Adiciona a quantidade nova
                 let carQuantity = (actualQuantity + 1)

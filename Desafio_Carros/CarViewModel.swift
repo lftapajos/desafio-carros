@@ -84,9 +84,10 @@ class CarViewModel: NSObject {
     }
     
     //Função para chamar a View de carrinho
-    func callBucketViewController(_ controller: ViewController) {
+    func callBucketViewController(_ controller: ViewController, car: [CarsModel]) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let bucketViewController = storyboard.instantiateViewController(withIdentifier: "BucketViewController") as! BucketViewController
+        bucketViewController.carList = car
         controller.navigationController?.pushViewController(bucketViewController, animated: true)
     }
 }

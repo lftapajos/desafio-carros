@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     
     //Função para Mostrar cesta de compras
     @IBAction func showBucket(_ sender: Any) {
-        self.carViewModel.callBucketViewController(self)
+        self.carViewModel.callBucketViewController(self, car: self.carsModel)
     }
     
     override func didReceiveMemoryWarning() {

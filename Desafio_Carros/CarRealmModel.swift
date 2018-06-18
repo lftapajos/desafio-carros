@@ -85,6 +85,7 @@ class CarRealmModel {
         return car
     }
     
+    
     //Atualiza quantidade do Carro
     func updateCarQuantity(_ id: Int, newQuantity: Int) {
         

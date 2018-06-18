@@ -293,14 +293,95 @@
                                     <action selector="retornar:" destination="5Gd-Nu-Jcz" eventType="touchUpInside" id="lgX-nF-IKv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de Compras" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69x-MW-GOP">
+                                <rect key="frame" x="16" y="20" width="343" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OId-Cy-axp">
+                                <rect key="frame" x="0.0" y="55" width="375" height="505"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketTableViewCell" rowHeight="140" id="d4G-p6-0fr" customClass="BucketTableViewCell" customModule="Desafio_Carros" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d4G-p6-0fr" id="FTx-DO-T6J">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6C-CV-Qd6">
+                                                    <rect key="frame" x="144" y="8" width="223" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="fo3-dK-HDj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2e-nn-gdZ" customClass="CircleImage" customModule="Desafio_Carros" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="6" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="JGY-Rt-MYw"/>
+                                                        <constraint firstAttribute="height" constant="128" id="g4j-6f-7nt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqo-yX-w1B">
+                                                    <rect key="frame" x="144" y="37" width="223" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZl-3k-B2g">
+                                                    <rect key="frame" x="144" y="66" width="223" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R2e-nn-gdZ" firstAttribute="top" secondItem="FTx-DO-T6J" secondAttribute="topMargin" constant="-2" id="0Zl-7e-UZh"/>
+                                                <constraint firstItem="Pqo-yX-w1B" firstAttribute="top" secondItem="e6C-CV-Qd6" secondAttribute="bottom" constant="8" id="BcU-2Z-MaJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OZl-3k-B2g" secondAttribute="trailing" id="UF9-sJ-2Vs"/>
+                                                <constraint firstItem="OZl-3k-B2g" firstAttribute="top" secondItem="Pqo-yX-w1B" secondAttribute="bottom" constant="5.5" id="ZfQ-dW-AGU"/>
+                                                <constraint firstAttribute="topMargin" secondItem="e6C-CV-Qd6" secondAttribute="top" id="eZ5-hA-5e0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="e6C-CV-Qd6" secondAttribute="trailing" id="kjT-6b-Xdk"/>
+                                                <constraint firstItem="Pqo-yX-w1B" firstAttribute="leading" secondItem="R2e-nn-gdZ" secondAttribute="trailing" constant="8" id="m2i-RI-GyP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Pqo-yX-w1B" secondAttribute="trailing" id="n1f-0Z-aZa"/>
+                                                <constraint firstItem="OZl-3k-B2g" firstAttribute="leading" secondItem="R2e-nn-gdZ" secondAttribute="trailing" constant="8" id="qsU-eQ-MFb"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="R2e-nn-gdZ" secondAttribute="leading" id="rnU-VQ-D0E"/>
+                                                <constraint firstItem="e6C-CV-Qd6" firstAttribute="leading" secondItem="R2e-nn-gdZ" secondAttribute="trailing" constant="8" id="v6o-2u-fxy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="carImage" destination="R2e-nn-gdZ" id="JDU-1L-vDL"/>
+                                            <outlet property="carName" destination="e6C-CV-Qd6" id="REW-H5-s2H"/>
+                                            <outlet property="carPrice" destination="Pqo-yX-w1B" id="ClW-7n-zFB"/>
+                                            <outlet property="carQuantity" destination="OZl-3k-B2g" id="aCc-jW-zRK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="chu-FG-8NP" id="DKv-Lc-HXz"/>
+                                    <outlet property="delegate" destination="chu-FG-8NP" id="ixB-CG-dHC"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OId-Cy-axp" secondAttribute="trailing" id="Jal-h3-mgz"/>
                             <constraint firstItem="7tk-ID-Mnk" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" id="N0Y-sp-zE7"/>
+                            <constraint firstItem="69x-MW-GOP" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" id="Z0u-l5-aMQ"/>
+                            <constraint firstItem="OId-Cy-axp" firstAttribute="top" secondItem="69x-MW-GOP" secondAttribute="bottom" constant="7.5" id="Zeb-p0-ymS"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="69x-MW-GOP" secondAttribute="leading" id="bnq-I7-4uO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="7tk-ID-Mnk" secondAttribute="leading" id="db8-G4-VmZ"/>
+                            <constraint firstItem="OId-Cy-axp" firstAttribute="leading" secondItem="chu-FG-8NP" secondAttribute="leading" id="jCB-jb-3ap"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="69x-MW-GOP" secondAttribute="trailing" id="kb3-7g-xO8"/>
+                            <constraint firstItem="RDN-mp-Hv0" firstAttribute="top" secondItem="OId-Cy-axp" secondAttribute="bottom" constant="107" id="oJv-uQ-gFW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bucketTableView" destination="OId-Cy-axp" id="i4C-Kp-pai"/>
                         <outlet property="bucketViewModel" destination="nVA-HI-epA" id="gGh-2K-G4V"/>
                     </connections>
                 </viewController>
@@ -312,7 +393,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2495" y="47"/>
+            <point key="canvasLocation" x="2493.5999999999999" y="46.326836581709152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Md-VV-vse">
