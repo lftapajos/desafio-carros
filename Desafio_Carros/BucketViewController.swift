@@ -22,11 +22,8 @@ class BucketViewController: UIViewController {
         bucketTableView.delegate = self
         bucketTableView.dataSource = self
         
-        //Carrega a lista de carros na cesta de comrpas
+        //Carrega a lista de carros na cesta de compras
         self.bucketModel = Array(self.bucketViewModel.getAllBucket())
-        //self.bucketTableView.reloadData()
-        
-        //self.bucketViewModel.getAllBucket(listCars: carList)
         
     }
 

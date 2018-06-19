@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Mostra botão de carrinho de compras caso exista um carrinho ativo
-        self.buttonBucket.isHidden = self.carViewModel.showBucket()
+        //Mostra botão da cesta de compras caso exista uma cesta de compras ativa
+        self.buttonBucket.isHidden = self.carViewModel.getShowBucket()
         
         //Chama inserção de cliente
         self.carViewModel.addClient() {

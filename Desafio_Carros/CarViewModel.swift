@@ -36,7 +36,7 @@ class CarViewModel: NSObject {
     }
     
     //Verifica se cliente possui itens na cesta de compras
-    func showBucket() -> Bool {
+    func getShowBucket() -> Bool {
         var retorno = true
         if (BucketRealmModel().verifyBucketExists() != "") {
             retorno = false

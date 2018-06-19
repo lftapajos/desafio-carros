@@ -338,6 +338,22 @@
                                                     <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiZ-Iw-e7w">
+                                                    <rect key="frame" x="321" y="97" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="-"/>
+                                                    <connections>
+                                                        <action selector="deleteCarBucket:" destination="d4G-p6-0fr" eventType="touchUpInside" id="8V5-cz-Qae"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DS4-4v-wcA">
+                                                    <rect key="frame" x="267" y="97" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addCarBucket:" destination="d4G-p6-0fr" eventType="touchUpInside" id="Ukv-Tb-Lib"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R2e-nn-gdZ" firstAttribute="top" secondItem="FTx-DO-T6J" secondAttribute="topMargin" constant="-2" id="0Zl-7e-UZh"/>
@@ -354,10 +370,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addCarButton" destination="DS4-4v-wcA" id="1OY-2i-lKD"/>
+                                            <outlet property="bucketViewModel" destination="nVA-HI-epA" id="aF9-MN-6p9"/>
                                             <outlet property="carImage" destination="R2e-nn-gdZ" id="JDU-1L-vDL"/>
                                             <outlet property="carName" destination="e6C-CV-Qd6" id="REW-H5-s2H"/>
                                             <outlet property="carPrice" destination="Pqo-yX-w1B" id="ClW-7n-zFB"/>
                                             <outlet property="carQuantity" destination="OZl-3k-B2g" id="aCc-jW-zRK"/>
+                                            <outlet property="removeCarButton" destination="CiZ-Iw-e7w" id="Qku-rN-jmp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

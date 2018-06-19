@@ -53,9 +53,6 @@ class DetailCarViewModel: NSObject {
             //Recupera saldo substraido da cesta de compas
             let actualCarBucket = bucket.getCarBucket("\((self.carsList.first?.id)!)")
             
-            //Atualiza lista de dados do carro selecionado, com a nova quantidade
-            //self.carsList.first!.quantidade! = newQuantity
-            
             //Se o carro selecionado está na cesta de compras, mostra botão de remover
             if (actualCarBucket > 0) {
                 
@@ -72,7 +69,7 @@ class DetailCarViewModel: NSObject {
             
         }
         
-        //Retorna se existe um carrinho de compras ativo
+        //Retorna se existe uma cesta de compras ativa
         return actualBucket.isBucket!
         
     }
@@ -99,12 +96,14 @@ class DetailCarViewModel: NSObject {
         }
         
         if (!getBucket(controller)) {
+            
             //Recupera detalhes do cliente, formata e carrega o saldo atual
             let cli = client.getClient(EMAIL_CLIENT)
             controller.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: cli.saldo))"
         }
     }
     
+    //Adiciona carro na cesta de compras
     func addCarInBucket(_ controller: DetailCarViewController) {
         
         let bucket = Bucket()
@@ -116,7 +115,6 @@ class DetailCarViewModel: NSObject {
         
         //Cria e carrega o id do Bucket
         let bucketId = BucketRealmModel().createBucket(bucket)
-        //print("bucketId =====> \(bucketId)")
         
         //Quantidade atual no estoque do carro selecionado
         let actualQuantity = self.carsList.first!.quantidade!
@@ -133,7 +131,7 @@ class DetailCarViewModel: NSObject {
             //Recupera o preço de compra do carro
             carPrice = self.carsList.first!.preco!
             
-            //Salva os dados do carro para o cliente no carrinho de compras
+            //Salva os dados do carro para o cliente na cesta de compras
             let clientCars = ClientCarsModel()
             clientCars.idBucket = bucketId
             clientCars.idClient = client.id
@@ -141,7 +139,7 @@ class DetailCarViewModel: NSObject {
             clientCars.quantidade = 1
             clientCars.valor = carPrice
             
-            //Se foi possível adicionar ou alterar os dados de compro do carro
+            //Se foi possível adicionar ou alterar os dados de compra do carro
             if (BucketRealmModel().addClientCars(clientCar: clientCars, car: self.carsList)) {
                 
                 //Subtrai a quantidade atual
@@ -150,7 +148,7 @@ class DetailCarViewModel: NSObject {
                 //Carrega nova quantidade
                 self.carsList.first!.quantidade! = carQuantity
                 
-                //Verifica se possui um carrinho criado
+                //Verifica se possui uma cesta de compras criada
                 if (getBucket(controller)) {
                     
                     //Recupera detalhes do cliente, formata e carrega o saldo atual
@@ -165,9 +163,9 @@ class DetailCarViewModel: NSObject {
         
     }
     
+    //Remove carro da cesta de compras
     func deleteCarInBucket(_ controller: DetailCarViewController) {
         
-        //var carQuantity = 0
         var carPrice = 0.0
         
         //Recupera o ID do Bucket
@@ -182,13 +180,13 @@ class DetailCarViewModel: NSObject {
         //Saldo atual do cliente
         let actualSale = BucketRealmModel().getBucketSale()
         
-        //Verifica se o saldo é menor que saldo inciial do cliente
+        //Verifica se o saldo é menor que saldo incial do cliente
         if (actualSale < SALE_CLIENT) {
             
             //Recupera o preço de compra do carro
             carPrice = self.carsList.first!.preco!
             
-            //Salva os dados do carro para o cliente no carrinho de compras
+            //Salva os dados do carro para o cliente na cesta de compras
             let clientCars = ClientCarsModel()
             clientCars.idBucket = bucketId
             clientCars.idClient = client.id
@@ -205,14 +203,14 @@ class DetailCarViewModel: NSObject {
                 //Carrega nova quantidade
                 self.carsList.first!.quantidade! = actualQuantity
 
-                //Verifica se possui um carrinho criado
+                //Verifica se possui uma cesta de compras criada
                 if (getBucket(controller)) {
                     
-                    //Recupera detalhes do cliente, formata e carrega o saldo atual
+                    //Recupera detalhes do cliente, formata e carrega a quantidade atual
                     controller.labelQuantity.text = "Quantidade: \(String(describing: actualQuantity))"
                     
                 } else {
-                    //Recupera detalhes do cliente, formata e carrega o saldo atual
+                    //Recupera detalhes do cliente, formata e carrega aquantidade atual
                     controller.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
                 }
             }

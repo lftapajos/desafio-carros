@@ -95,7 +95,7 @@ class APIClient: NSObject {
         }
     }
     
-    //Carrega dados de deatlhes do Carro selecionado
+    //Carrega dados de detalhes do Carro selecionado
     func fetchDetailsCar(_ id: Int) -> Promise<CarsModel> {
         let urlString = "\(API_CARROS_URL)\(id)"
         
