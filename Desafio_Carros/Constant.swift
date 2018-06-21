@@ -21,3 +21,12 @@ let SALE_CLIENT = 100000.0
 let SHADOW_GRY: CGFloat = 120.0 / 255.0
 typealias DownloadComplete = () -> ()
 typealias AddComplete = () -> ()
+
+//Mensagens
+let MESSAGE_ADD_SUCCESS = "Client add with success!"
+let MESSAGE_INSUFFICIENT_FUNDS = "Insufficient funds!"
+let MESSAGE_REMOVE_BUCKET = "Do you want to confirm the deletion of the bucket?"
+let MESSAGE_CONFIRM_BUCKET = "Do you want to confirm the payment of the bucket?"
+let MESSAGE_BUCKET_REMOVED = "Cesta de compras removida com sucesso!"
+let MESSAGE_BUCKET_CONFIRMED = "Cesta de compras adicionada com sucesso!"
+

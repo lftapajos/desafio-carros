@@ -78,7 +78,7 @@ class CarViewModel: NSObject {
     
     func showAlert(controller: ViewController) {
         //Mostra mensagem de cliente inserido
-        Alert(controller: controller).show(message: "Client add with success!", handler : { action in
+        Alert(controller: controller).show(message: MESSAGE_ADD_SUCCESS, handler : { action in
             controller.navigationController?.popViewController(animated: true)
         })
     }

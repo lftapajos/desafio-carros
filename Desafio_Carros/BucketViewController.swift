@@ -47,11 +47,11 @@ class BucketViewController: UIViewController {
     }
     
     @IBAction func confirmRemoveBucket(_ sender: Any) {
-        self.bucketViewModel.showConfirmAlert(self, message: "Deseja excluir a cesta de compras?", returnPage: false)
+        self.bucketViewModel.showConfirmAlertRemoveBucket(self, message: MESSAGE_REMOVE_BUCKET, returnPage: false)
     }
     
     @IBAction func confirmBucket(_ sender: Any) {
-        self.bucketViewModel.showConfirmAlert(self, message: "Deseja confirmar a compra?", returnPage: false)
+        self.bucketViewModel.showConfirmAlertBucket(self, message: MESSAGE_CONFIRM_BUCKET, returnPage: false)
     }
     
 }

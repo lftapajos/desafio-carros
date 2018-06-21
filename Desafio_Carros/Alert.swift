@@ -25,4 +25,15 @@ class Alert: NSObject {
         details.addAction(cancel)
         controller.present(details, animated: true, completion: nil)
     }
+    
+    func showConfirm(_ title: String = "CONFIRM", message: String = "Mensagem", okMessage: String = "OK", cancelMessage: String = "CANCEL", success: (() -> Void)?, cancel: (() -> Void)?) {
+        
+        let confirmMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: okMessage, style: .default, handler: { (action) -> Void in success?()})
+        let cancel = UIAlertAction(title: cancelMessage, style: .cancel) { (action) -> Void in cancel?()}
+        
+        confirmMessage.addAction(cancel)
+        confirmMessage.addAction(ok)
+        controller.present(confirmMessage, animated: true, completion: nil)
+    }
 }

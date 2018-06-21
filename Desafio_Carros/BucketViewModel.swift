@@ -71,13 +71,40 @@ class BucketViewModel: NSObject {
         
     }
     
-    //Mostra mensagem
-    func showConfirmAlert(_ controller: BucketViewController, message: String, returnPage: Bool) {
-        Alert(controller: controller).show(message: message, handler : { action in
+    //Mostra mensagem de confirmação de exclusão da cesta de compras
+    func showConfirmAlertRemoveBucket(_ controller: BucketViewController, message: String, returnPage: Bool) {
+        Alert(controller: controller).showConfirm("CONFIRM", message: "Confirma a exclusão?", okMessage: "SIM", cancelMessage: "NÃO", success: { action in
+            
+            self.confirmRemoveBucket()
             if (returnPage) {
                 controller.navigationController?.popViewController(animated: true)
             }
+        }, cancel: { action in
+            //print("CANCEL")
         })
+    }
+    
+    //Mostra mensagem de confirmação de compra dos carros da cesta de compras
+    func showConfirmAlertBucket(_ controller: BucketViewController, message: String, returnPage: Bool) {
+        Alert(controller: controller).showConfirm("CONFIRM", message: "Confirma a exclusão?", okMessage: "SIM", cancelMessage: "NÃO", success: { action in
+            
+            self.confirmBucket()
+            if (returnPage) {
+                controller.navigationController?.popViewController(animated: true)
+            }
+        }, cancel: { action in
+            //print("CANCEL")
+        })
+    }
+    
+    
+    
+    func confirmRemoveBucket() {
+        print(MESSAGE_BUCKET_REMOVED)
+    }
+    
+    func confirmBucket() {
+        print(MESSAGE_BUCKET_CONFIRMED)
     }
     
 }

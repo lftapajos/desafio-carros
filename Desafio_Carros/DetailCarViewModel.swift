@@ -168,12 +168,12 @@ class DetailCarViewModel: NSObject {
                     controller.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
                 }
             } else {
-                self.showAlert(controller, message: "Saldo insuficiente!", returnPage: false)
+                self.showAlert(controller, message: MESSAGE_INSUFFICIENT_FUNDS, returnPage: false)
             }
             
         } else {
             //print("Saldo insuficiente!")
-            self.showAlert(controller, message: "Saldo insuficiente!", returnPage: false)
+            self.showAlert(controller, message: MESSAGE_INSUFFICIENT_FUNDS, returnPage: false)
         }
         
     }
@@ -231,7 +231,7 @@ class DetailCarViewModel: NSObject {
             }
         } else {
             //print("Saldo insuficiente!")
-            self.showAlert(controller, message: "Saldo insuficiente!", returnPage: false)
+            self.showAlert(controller, message: MESSAGE_INSUFFICIENT_FUNDS, returnPage: false)
         }
         
     }
