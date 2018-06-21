@@ -12,7 +12,10 @@ class BucketViewController: UIViewController {
 
     @IBOutlet var bucketViewModel: BucketViewModel!
     @IBOutlet weak var bucketTableView: UITableView!
-
+    @IBOutlet weak var buttonBucket: UIButton!
+    @IBOutlet weak var buttonConfirmBucket: UIButton!
+    @IBOutlet weak var labelBucketSale: UILabel!
+    
     var bucketModel = [Car]()
     var carList = [CarsModel]()
     
@@ -27,6 +30,13 @@ class BucketViewController: UIViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //Mostra o saldo atual da cesta de compras
+        self.labelBucketSale.text = self.bucketViewModel.showBucketSale()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,6 +44,14 @@ class BucketViewController: UIViewController {
     
     @IBAction func retornar(_ sender: Any) {
         self.bucketViewModel.callReturnViewController(self)
+    }
+    
+    @IBAction func confirmRemoveBucket(_ sender: Any) {
+        self.bucketViewModel.showConfirmAlert(self, message: "Deseja excluir a cesta de compras?", returnPage: false)
+    }
+    
+    @IBAction func confirmBucket(_ sender: Any) {
+        self.bucketViewModel.showConfirmAlert(self, message: "Deseja confirmar a compra?", returnPage: false)
     }
     
 }

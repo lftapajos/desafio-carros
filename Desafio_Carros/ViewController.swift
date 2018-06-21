@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         self.carViewModel.getCars {
             self.carsModel = Array(self.carViewModel.carsList)
             
+            //Atualiza a lista de carros
             self.carViewModel.stopLoading()
             self.carsTableView.reloadData()
         }

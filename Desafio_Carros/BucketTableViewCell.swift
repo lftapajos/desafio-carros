@@ -19,9 +19,8 @@ class BucketTableViewCell: UITableViewCell {
     @IBOutlet weak var carName: UILabel!
     @IBOutlet weak var carQuantity: UILabel!
     @IBOutlet weak var carPrice: UILabel!
-    @IBOutlet weak var addCarButton: UIButton!
-    @IBOutlet weak var removeCarButton: UIButton!
     
+    var car = [Car]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,16 +31,8 @@ class BucketTableViewCell: UITableViewCell {
         self.carName.text = item.nome
         self.carQuantity.text = "\(item.quantidade)"
         self.carPrice.text = "\(String(describing: item.preco))"
-    }
-    
-    //Função para Adicionar carro na cesta de compras
-    @IBAction func addCarBucket(_ sender: Any) {
-        self.bucketViewModel.addCarInBucket(self)
-    }
-    
-    //Função para Remover carro na cesta de compras
-    @IBAction func deleteCarBucket(_ sender: Any) {
-        self.bucketViewModel.deleteCarInBucket(self)
+        
+        self.car = [item]
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

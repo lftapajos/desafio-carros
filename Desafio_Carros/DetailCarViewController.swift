@@ -24,6 +24,8 @@ class DetailCarViewController: UIViewController {
     @IBOutlet weak var buttonRemoveCar: UIButton!
     @IBOutlet weak var buttonShowBucket: UIButton!
     
+    var carExists = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -35,15 +37,32 @@ class DetailCarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Recupera e carrega detalhes do carro selecionado
-        self.detailCarViewModel.getCar(carSeleced.first!, controller: self) {
+        //Verifica se o carro já foi salvo
+        let carExists = self.detailCarViewModel.getCarInBucket(car: carSeleced.first!)
+        
+        if (carExists) {
+            self.carExists = true
             
-            //Carrega detalhes
-            self.detailCarViewModel.setCarDetails(self.detailCarViewModel.carsList, controller: self)
-            
+            //Carrega detalhes do carro já existente
+            self.detailCarViewModel.setCarDetails(self.carSeleced, controller: self)
+                
             //Remove loading
             self.detailCarViewModel.stopLoading()
+
+        } else {
+            
+            //Recupera e carrega detalhes do carro selecionado
+            self.detailCarViewModel.getCar(carSeleced.first!, controller: self) {
+                
+                //Carrega detalhes do carro baixado
+                self.detailCarViewModel.setCarDetails(self.detailCarViewModel.carsList, controller: self)
+                
+                //Remove loading
+                self.detailCarViewModel.stopLoading()
+            }
         }
+        
+       
     }
 
     //Função para Mostrar cesta de compras
@@ -53,7 +72,7 @@ class DetailCarViewController: UIViewController {
     
     //Função para Adicionar carro na cesta de compras
     @IBAction func addCarBucket(_ sender: Any) {
-        self.detailCarViewModel.addCarInBucket(self)
+        self.detailCarViewModel.addCarInBucket(self, initial: self.carExists)
     }
     
     //Função para Remover carro na cesta de compras

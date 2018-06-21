@@ -158,13 +158,6 @@
                                 <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gT-lZ-cvv">
-                                <rect key="frame" x="16" y="27" width="41" height="30"/>
-                                <state key="normal" title="Voltar"/>
-                                <connections>
-                                    <action selector="retornar:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="vx5-rN-7Vc"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdr-OY-Yq6">
                                 <rect key="frame" x="16" y="278" width="343" height="21"/>
                                 <constraints>
@@ -226,13 +219,24 @@
                                     <action selector="showBucket:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="n6e-Dr-g1W"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gT-lZ-cvv">
+                                <rect key="frame" x="16" y="20" width="44" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="aIA-3k-YF5"/>
+                                    <constraint firstAttribute="width" constant="44" id="ftW-wF-RpO"/>
+                                </constraints>
+                                <state key="normal" image="bt_voltar.png"/>
+                                <connections>
+                                    <action selector="retornar:" destination="lsd-4N-zfJ" eventType="touchUpInside" id="vx5-rN-7Vc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="6gT-lZ-cvv" secondAttribute="leading" id="3rt-6Z-KQm"/>
                             <constraint firstItem="BiP-92-EBK" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="8" id="7am-7g-bnZ"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="6gT-lZ-cvv" secondAttribute="leading" id="7e3-Rz-V25"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kd0-aN-6Ti" secondAttribute="trailing" id="BIX-mA-YZB"/>
-                            <constraint firstItem="6gT-lZ-cvv" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" constant="7" id="Dkf-Zx-2tU"/>
+                            <constraint firstItem="6gT-lZ-cvv" firstAttribute="top" secondItem="DEO-vq-Pqq" secondAttribute="bottom" id="FRz-uB-gya"/>
                             <constraint firstItem="Qdr-OY-Yq6" firstAttribute="top" secondItem="C6F-7Q-KIm" secondAttribute="bottom" constant="8" id="GTT-vO-CZf"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Znx-c9-mYb" secondAttribute="leading" id="KsY-mx-TkB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="BiP-92-EBK" secondAttribute="leading" id="S9p-Vh-Fsc"/>
@@ -286,22 +290,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tk-ID-Mnk">
-                                <rect key="frame" x="16" y="20" width="41" height="30"/>
-                                <state key="normal" title="Voltar"/>
-                                <connections>
-                                    <action selector="retornar:" destination="5Gd-Nu-Jcz" eventType="touchUpInside" id="lgX-nF-IKv"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de Compras" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69x-MW-GOP">
-                                <rect key="frame" x="16" y="20" width="343" height="27.5"/>
+                                <rect key="frame" x="16" y="20" width="343" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                 <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OId-Cy-axp">
-                                <rect key="frame" x="0.0" y="55" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="473" id="OLY-jB-szf"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketTableViewCell" rowHeight="140" id="d4G-p6-0fr" customClass="BucketTableViewCell" customModule="Desafio_Carros" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="140"/>
@@ -338,22 +338,6 @@
                                                     <color key="textColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiZ-Iw-e7w">
-                                                    <rect key="frame" x="321" y="97" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="-"/>
-                                                    <connections>
-                                                        <action selector="deleteCarBucket:" destination="d4G-p6-0fr" eventType="touchUpInside" id="8V5-cz-Qae"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DS4-4v-wcA">
-                                                    <rect key="frame" x="267" y="97" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="+"/>
-                                                    <connections>
-                                                        <action selector="addCarBucket:" destination="d4G-p6-0fr" eventType="touchUpInside" id="Ukv-Tb-Lib"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R2e-nn-gdZ" firstAttribute="top" secondItem="FTx-DO-T6J" secondAttribute="topMargin" constant="-2" id="0Zl-7e-UZh"/>
@@ -370,13 +354,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addCarButton" destination="DS4-4v-wcA" id="1OY-2i-lKD"/>
                                             <outlet property="bucketViewModel" destination="nVA-HI-epA" id="aF9-MN-6p9"/>
                                             <outlet property="carImage" destination="R2e-nn-gdZ" id="JDU-1L-vDL"/>
                                             <outlet property="carName" destination="e6C-CV-Qd6" id="REW-H5-s2H"/>
                                             <outlet property="carPrice" destination="Pqo-yX-w1B" id="ClW-7n-zFB"/>
                                             <outlet property="carQuantity" destination="OZl-3k-B2g" id="aCc-jW-zRK"/>
-                                            <outlet property="removeCarButton" destination="CiZ-Iw-e7w" id="Qku-rN-jmp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -385,23 +367,100 @@
                                     <outlet property="delegate" destination="chu-FG-8NP" id="ixB-CG-dHC"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDd-EX-Xug">
+                                <rect key="frame" x="315" y="15" width="35" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Gc1-dI-dam"/>
+                                    <constraint firstAttribute="width" constant="35" id="qX4-kC-lNB"/>
+                                </constraints>
+                                <state key="normal" image="item_compra_exclui.png"/>
+                                <connections>
+                                    <action selector="confirmRemoveBucket:" destination="5Gd-Nu-Jcz" eventType="touchUpInside" id="mdC-SK-3H4"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhS-Yg-0bn">
+                                <rect key="frame" x="0.0" y="525" width="375" height="142"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL DA CESTA:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sek-wg-1DO">
+                                        <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="OfN-8a-5ph"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 100.000,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fk0-b3-2fu">
+                                        <rect key="frame" x="8" y="37" width="359" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="eps-WF-MgL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-Cd-5EC">
+                                        <rect key="frame" x="91" y="79" width="193" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="193" id="CVr-DB-iBE"/>
+                                            <constraint firstAttribute="height" constant="55" id="eDF-FW-zhk"/>
+                                        </constraints>
+                                        <state key="normal" title="EFETUAR PAGAMENTO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmBucket:" destination="5Gd-Nu-Jcz" eventType="touchUpInside" id="iJm-Ez-QV8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1450980392" green="0.64705882349999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fk0-b3-2fu" firstAttribute="top" secondItem="Sek-wg-1DO" secondAttribute="bottom" constant="8" id="0oJ-qp-H6d"/>
+                                    <constraint firstItem="Y58-Cd-5EC" firstAttribute="centerX" secondItem="uhS-Yg-0bn" secondAttribute="centerX" id="2Ld-bQ-fUO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sek-wg-1DO" secondAttribute="trailing" constant="8" id="54d-fa-dmp"/>
+                                    <constraint firstItem="Sek-wg-1DO" firstAttribute="leading" secondItem="uhS-Yg-0bn" secondAttribute="leading" constant="8" id="JNg-aV-wEG"/>
+                                    <constraint firstAttribute="trailing" secondItem="fk0-b3-2fu" secondAttribute="trailing" constant="8" id="dSW-67-tbl"/>
+                                    <constraint firstItem="fk0-b3-2fu" firstAttribute="leading" secondItem="uhS-Yg-0bn" secondAttribute="leading" constant="8" id="jkK-4b-lXM"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y58-Cd-5EC" secondAttribute="bottom" constant="8" id="mGF-In-zih"/>
+                                    <constraint firstItem="Sek-wg-1DO" firstAttribute="top" secondItem="uhS-Yg-0bn" secondAttribute="top" constant="8" id="oHn-42-H9Y"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tk-ID-Mnk">
+                                <rect key="frame" x="16" y="20" width="44" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="e4k-Nc-nH0"/>
+                                    <constraint firstAttribute="height" constant="33" id="sGs-u1-tCx"/>
+                                </constraints>
+                                <state key="normal" image="bt_voltar.png"/>
+                                <connections>
+                                    <action selector="retornar:" destination="5Gd-Nu-Jcz" eventType="touchUpInside" id="lgX-nF-IKv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uhS-Yg-0bn" secondAttribute="trailing" id="2Ip-zw-rVf"/>
+                            <constraint firstItem="uhS-Yg-0bn" firstAttribute="top" secondItem="OId-Cy-axp" secondAttribute="bottom" constant="-3" id="9Cz-WY-01L"/>
+                            <constraint firstItem="kDd-EX-Xug" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" constant="-5" id="Hhr-BF-gwR"/>
                             <constraint firstAttribute="trailing" secondItem="OId-Cy-axp" secondAttribute="trailing" id="Jal-h3-mgz"/>
-                            <constraint firstItem="7tk-ID-Mnk" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" id="N0Y-sp-zE7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kDd-EX-Xug" secondAttribute="trailing" constant="9" id="NXc-zh-afp"/>
+                            <constraint firstItem="7tk-ID-Mnk" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" id="Vbf-ec-ajN"/>
+                            <constraint firstItem="uhS-Yg-0bn" firstAttribute="leading" secondItem="chu-FG-8NP" secondAttribute="leading" id="W8H-vR-2fK"/>
                             <constraint firstItem="69x-MW-GOP" firstAttribute="top" secondItem="bWk-Zq-LXs" secondAttribute="bottom" id="Z0u-l5-aMQ"/>
                             <constraint firstItem="OId-Cy-axp" firstAttribute="top" secondItem="69x-MW-GOP" secondAttribute="bottom" constant="7.5" id="Zeb-p0-ymS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="69x-MW-GOP" secondAttribute="leading" id="bnq-I7-4uO"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="7tk-ID-Mnk" secondAttribute="leading" id="db8-G4-VmZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="7tk-ID-Mnk" secondAttribute="leading" id="e0z-8c-cyh"/>
                             <constraint firstItem="OId-Cy-axp" firstAttribute="leading" secondItem="chu-FG-8NP" secondAttribute="leading" id="jCB-jb-3ap"/>
                             <constraint firstAttribute="trailingMargin" secondItem="69x-MW-GOP" secondAttribute="trailing" id="kb3-7g-xO8"/>
-                            <constraint firstItem="RDN-mp-Hv0" firstAttribute="top" secondItem="OId-Cy-axp" secondAttribute="bottom" constant="107" id="oJv-uQ-gFW"/>
+                            <constraint firstItem="RDN-mp-Hv0" firstAttribute="top" secondItem="uhS-Yg-0bn" secondAttribute="bottom" id="yJ1-Yy-nr5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bucketTableView" destination="OId-Cy-axp" id="i4C-Kp-pai"/>
                         <outlet property="bucketViewModel" destination="nVA-HI-epA" id="gGh-2K-G4V"/>
+                        <outlet property="buttonBucket" destination="kDd-EX-Xug" id="Mb4-Ac-w4S"/>
+                        <outlet property="buttonConfirmBucket" destination="Y58-Cd-5EC" id="mMu-Pf-umn"/>
+                        <outlet property="labelBucketSale" destination="fk0-b3-2fu" id="zqf-1f-VXq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMg-z2-eLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,6 +493,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bt_voltar.png" width="55" height="41"/>
         <image name="item_compra.png" width="84" height="107"/>
+        <image name="item_compra_exclui.png" width="35" height="56"/>
     </resources>
 </document>

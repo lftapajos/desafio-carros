@@ -17,6 +17,8 @@ class DetailCarViewModel: NSObject {
     var cars = CarRealmModel()
     var bucket = BucketRealmModel()
     
+    var carActualQuantity = 0;
+    
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     //Recupera Carro
@@ -24,6 +26,7 @@ class DetailCarViewModel: NSObject {
         
         self.apiClient.downloadDetailCar(car) {
             self.carsList = self.apiClient._carsList
+            print(self.carsList)
             
             //Se não baixar os dados, esconde botões de adicionar e subtrair
             if (self.carsList.first?.quantidade == nil) {
@@ -33,18 +36,17 @@ class DetailCarViewModel: NSObject {
             }
             complete()
         }
-        
     }
     
     //Verifica se cliente possui itens na cesta de compras
-    func getBucket(_ controller: DetailCarViewController) -> Bool {
+    func getBucket(_ controller: DetailCarViewController, initial: Bool) -> Bool {
         
         //Calcula saldo do cliente por possível cesta de compras
         let actualBucket = bucket.getBucket()
         
         //Saldo atual do cliente
         let cli = client.getClient(EMAIL_CLIENT)
-        let newSale = (cli.saldo - actualBucket.valor!)
+        let newSale = cli.saldo //- actualBucket.valor!)
         controller.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: newSale))"
         
         //Se os dados do carro forem encontrados
@@ -57,8 +59,14 @@ class DetailCarViewModel: NSObject {
             if (actualCarBucket > 0) {
                 
                 //Nova quantidade em estoque subtraindo a quantidade da cesta de compras
-                let newQuantity = ((self.carsList.first?.quantidade)! - actualCarBucket)
-                controller.labelQuantity.text = "Quantidade: \(newQuantity)"
+                if (initial) {
+                    self.carActualQuantity = actualCarBucket
+                    let newQuantity = ((self.carsList.first?.quantidade)! - actualCarBucket)
+                    controller.labelQuantity.text = "Quantidade: \(newQuantity)"
+                } else {
+                    let newQuantity = ((self.carsList.first?.quantidade)! - 1)
+                    controller.labelQuantity.text = "Quantidade: \(newQuantity)"
+                }
                 
                 controller.buttonRemoveCar.isHidden = false
                 controller.buttonShowBucket.isHidden = false
@@ -95,7 +103,7 @@ class DetailCarViewModel: NSObject {
             controller.labelQuantity.text = "Quantidade: \(String(describing: car.first!.quantidade!))"
         }
         
-        if (!getBucket(controller)) {
+        if (!getBucket(controller, initial: true)) {
             
             //Recupera detalhes do cliente, formata e carrega o saldo atual
             let cli = client.getClient(EMAIL_CLIENT)
@@ -104,7 +112,7 @@ class DetailCarViewModel: NSObject {
     }
     
     //Adiciona carro na cesta de compras
-    func addCarInBucket(_ controller: DetailCarViewController) {
+    func addCarInBucket(_ controller: DetailCarViewController, initial: Bool) {
         
         let bucket = Bucket()
         bucket.id = UUID().uuidString
@@ -145,20 +153,27 @@ class DetailCarViewModel: NSObject {
                 //Subtrai a quantidade atual
                 carQuantity = (actualQuantity - 1)
                 
-                //Carrega nova quantidade
-                self.carsList.first!.quantidade! = carQuantity
-                
                 //Verifica se possui uma cesta de compras criada
-                if (getBucket(controller)) {
+                if (getBucket(controller, initial: initial)) {
+                
+                    //Carrega nova quantidade
+                    self.carsList.first!.quantidade! = carQuantity
+                
+                } else {
+                    
+                    //Carrega nova quantidade
+                    self.carsList.first!.quantidade! = carQuantity
                     
                     //Recupera detalhes do cliente, formata e carrega o saldo atual
                     controller.labelQuantity.text = "Quantidade: \(String(describing: carQuantity))"
-                    
                 }
+            } else {
+                self.showAlert(controller, message: "Saldo insuficiente!", returnPage: false)
             }
             
         } else {
-            print("Saldo insuficiente!")
+            //print("Saldo insuficiente!")
+            self.showAlert(controller, message: "Saldo insuficiente!", returnPage: false)
         }
         
     }
@@ -178,7 +193,7 @@ class DetailCarViewModel: NSObject {
         let client = ClientRealmModel().getClient(EMAIL_CLIENT)
         
         //Saldo atual do cliente
-        let actualSale = BucketRealmModel().getBucketSale()
+        let actualSale = client.saldo //BucketRealmModel().getBucketSale()
         
         //Verifica se o saldo é menor que saldo incial do cliente
         if (actualSale < SALE_CLIENT) {
@@ -204,7 +219,7 @@ class DetailCarViewModel: NSObject {
                 self.carsList.first!.quantidade! = actualQuantity
 
                 //Verifica se possui uma cesta de compras criada
-                if (getBucket(controller)) {
+                if (getBucket(controller, initial: false)) {
                     
                     //Recupera detalhes do cliente, formata e carrega a quantidade atual
                     controller.labelQuantity.text = "Quantidade: \(String(describing: actualQuantity))"
@@ -215,9 +230,18 @@ class DetailCarViewModel: NSObject {
                 }
             }
         } else {
-            print("Saldo insuficiente!")
+            //print("Saldo insuficiente!")
+            self.showAlert(controller, message: "Saldo insuficiente!", returnPage: false)
         }
         
+    }
+    
+    //Função para verificar se o carro já foi adicionado na cesta de compras
+    func getCarInBucket(car: CarsModel) -> Bool {
+        
+        let carRetorno = BucketRealmModel().getCarInBucket(car: car)
+        
+        return carRetorno
     }
     
     //Função para Retornar para a View de lista de carros
@@ -248,6 +272,15 @@ class DetailCarViewModel: NSObject {
     {
         self.activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
+    //Mostra mensagem
+    func showAlert(_ controller: DetailCarViewController, message: String, returnPage: Bool) {
+        Alert(controller: controller).show(message: message, handler : { action in
+            if (returnPage) {
+                controller.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
 }
