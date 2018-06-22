@@ -53,10 +53,6 @@ class CarViewModel: NSObject {
         }
     }
     
-    func numberOfItemsToDisplay(in section: Int) -> Int {
-        return carsList.count
-    }
-    
     //Mostra loading
     func startloading(_ controller: ViewController)
     {
