@@ -14,6 +14,11 @@
 		69578B5920DB79FD000A1740 /* bt_voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B5820DB79FD000A1740 /* bt_voltar.png */; };
 		69578B5B20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69578B5A20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift */; };
 		69578B5D20DCACFC000A1740 /* BucketTransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69578B5C20DCACFC000A1740 /* BucketTransactionsModel.swift */; };
+		69578B6320DD0CE7000A1740 /* bt_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B6020DD0CE7000A1740 /* bt_add.png */; };
+		69578B6620DD0DB7000A1740 /* bt_purchase.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B6420DD0DB7000A1740 /* bt_purchase.png */; };
+		69578B6720DD0DB7000A1740 /* bt_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B6520DD0DB7000A1740 /* bt_delete.png */; };
+		69578B6920DD1084000A1740 /* bt_payment.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B6820DD1084000A1740 /* bt_payment.png */; };
+		69578B6B20DD1235000A1740 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B6A20DD1235000A1740 /* logo.png */; };
 		6999D16D20D38E4F00DC05EE /* RectangleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D16C20D38E4F00DC05EE /* RectangleImage.swift */; };
 		6999D16F20D3A44F00DC05EE /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D16E20D3A44F00DC05EE /* Help.swift */; };
 		6999D17120D4095F00DC05EE /* BucketRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D17020D4095F00DC05EE /* BucketRealmModel.swift */; };
@@ -72,6 +77,11 @@
 		69578B5820DB79FD000A1740 /* bt_voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_voltar.png; sourceTree = "<group>"; };
 		69578B5A20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTransactionsRealmModel.swift; sourceTree = "<group>"; };
 		69578B5C20DCACFC000A1740 /* BucketTransactionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTransactionsModel.swift; sourceTree = "<group>"; };
+		69578B6020DD0CE7000A1740 /* bt_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_add.png; sourceTree = "<group>"; };
+		69578B6420DD0DB7000A1740 /* bt_purchase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_purchase.png; sourceTree = "<group>"; };
+		69578B6520DD0DB7000A1740 /* bt_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_delete.png; sourceTree = "<group>"; };
+		69578B6820DD1084000A1740 /* bt_payment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_payment.png; sourceTree = "<group>"; };
+		69578B6A20DD1235000A1740 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		6999D16C20D38E4F00DC05EE /* RectangleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleImage.swift; sourceTree = "<group>"; };
 		6999D16E20D3A44F00DC05EE /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		6999D17020D4095F00DC05EE /* BucketRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketRealmModel.swift; sourceTree = "<group>"; };
@@ -163,6 +173,11 @@
 		6999D17420D4544A00DC05EE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				69578B6A20DD1235000A1740 /* logo.png */,
+				69578B6020DD0CE7000A1740 /* bt_add.png */,
+				69578B6520DD0DB7000A1740 /* bt_delete.png */,
+				69578B6420DD0DB7000A1740 /* bt_purchase.png */,
+				69578B6820DD1084000A1740 /* bt_payment.png */,
 				6999D17520D4545B00DC05EE /* item_compra.png */,
 				69578B5620DB7205000A1740 /* item_compra_exclui.png */,
 				69578B5820DB79FD000A1740 /* bt_voltar.png */,
@@ -459,9 +474,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DA490220D2EF9E0071206B /* LaunchScreen.storyboard in Resources */,
+				69578B6720DD0DB7000A1740 /* bt_delete.png in Resources */,
+				69578B6B20DD1235000A1740 /* logo.png in Resources */,
 				69DA48FF20D2EF9E0071206B /* Assets.xcassets in Resources */,
+				69578B6620DD0DB7000A1740 /* bt_purchase.png in Resources */,
+				69578B6920DD1084000A1740 /* bt_payment.png in Resources */,
 				69578B5720DB7205000A1740 /* item_compra_exclui.png in Resources */,
 				6999D17620D4545B00DC05EE /* item_compra.png in Resources */,
+				69578B6320DD0CE7000A1740 /* bt_add.png in Resources */,
 				69DA48FD20D2EF9E0071206B /* Main.storyboard in Resources */,
 				69578B5920DB79FD000A1740 /* bt_voltar.png in Resources */,
 			);
