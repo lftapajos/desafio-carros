@@ -24,7 +24,7 @@ class CarTableViewCell: UITableViewCell {
         
         self.carImage.sd_setImage(with: URL(string: (item.imagem)!))
         self.carName.text = item.nome
-        self.carPrice.text = "\(String(describing: item.preco!))"
+        self.carPrice.text = "\(Help.shared.formatCoin("pt_BR", valor: item.preco!))"
         
     }
     

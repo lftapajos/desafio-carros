@@ -30,7 +30,7 @@ class BucketTableViewCell: UITableViewCell {
         self.carImage.sd_setImage(with: URL(string: (item.imagem)))
         self.carName.text = item.nome
         self.carQuantity.text = "\(item.quantidade)"
-        self.carPrice.text = "\(String(describing: item.preco))"
+        self.carPrice.text = "\(Help.shared.formatCoin("pt_BR", valor: item.preco))"
         
         self.car = [item]
     }

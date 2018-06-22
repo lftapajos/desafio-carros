@@ -27,6 +27,7 @@ class BucketViewController: UIViewController {
         
         //Carrega a lista de carros na cesta de compras
         self.bucketModel = Array(self.bucketViewModel.getAllBucket())
+        self.bucketTableView.reloadData()
         
     }
 
