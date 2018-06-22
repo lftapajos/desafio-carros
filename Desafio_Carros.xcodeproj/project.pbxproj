@@ -12,6 +12,8 @@
 		694BEF75239E05BF760A7EAE /* Pods_Desafio_CarrosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9735AAA0212AC2ECABFD4B8 /* Pods_Desafio_CarrosTests.framework */; };
 		69578B5720DB7205000A1740 /* item_compra_exclui.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B5620DB7205000A1740 /* item_compra_exclui.png */; };
 		69578B5920DB79FD000A1740 /* bt_voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69578B5820DB79FD000A1740 /* bt_voltar.png */; };
+		69578B5B20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69578B5A20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift */; };
+		69578B5D20DCACFC000A1740 /* BucketTransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69578B5C20DCACFC000A1740 /* BucketTransactionsModel.swift */; };
 		6999D16D20D38E4F00DC05EE /* RectangleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D16C20D38E4F00DC05EE /* RectangleImage.swift */; };
 		6999D16F20D3A44F00DC05EE /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D16E20D3A44F00DC05EE /* Help.swift */; };
 		6999D17120D4095F00DC05EE /* BucketRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6999D17020D4095F00DC05EE /* BucketRealmModel.swift */; };
@@ -68,6 +70,8 @@
 		6948F5D320D706E800333492 /* BucketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewCell.swift; sourceTree = "<group>"; };
 		69578B5620DB7205000A1740 /* item_compra_exclui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_compra_exclui.png; sourceTree = "<group>"; };
 		69578B5820DB79FD000A1740 /* bt_voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_voltar.png; sourceTree = "<group>"; };
+		69578B5A20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTransactionsRealmModel.swift; sourceTree = "<group>"; };
+		69578B5C20DCACFC000A1740 /* BucketTransactionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTransactionsModel.swift; sourceTree = "<group>"; };
 		6999D16C20D38E4F00DC05EE /* RectangleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleImage.swift; sourceTree = "<group>"; };
 		6999D16E20D3A44F00DC05EE /* Help.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		6999D17020D4095F00DC05EE /* BucketRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketRealmModel.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				69DA493120D2F2A30071206B /* CarsModel.swift */,
 				69DA493520D30A360071206B /* CarResponse.swift */,
 				6999D17720D45FEE00DC05EE /* BucketSaleModel.swift */,
+				69578B5C20DCACFC000A1740 /* BucketTransactionsModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				69DA494320D339590071206B /* CarRealmModel.swift */,
 				69DA494720D3468E0071206B /* ClientRealmModel.swift */,
 				6999D17020D4095F00DC05EE /* BucketRealmModel.swift */,
+				69578B5A20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 				6999D16D20D38E4F00DC05EE /* RectangleImage.swift in Sources */,
 				69DA494A20D347940071206B /* ClientsModel.swift in Sources */,
 				69DA493620D30A360071206B /* CarResponse.swift in Sources */,
+				69578B5B20DCAC0E000A1740 /* BucketTransactionsRealmModel.swift in Sources */,
 				69DA48FA20D2EF9E0071206B /* ViewController.swift in Sources */,
 				6999D17120D4095F00DC05EE /* BucketRealmModel.swift in Sources */,
 				69DA493820D313B20071206B /* CarTableViewCell.swift in Sources */,
@@ -616,6 +623,7 @@
 				6999D17E20D651A900DC05EE /* BucketViewModel.swift in Sources */,
 				69DA494120D3388E0071206B /* AllRealmObjects.swift in Sources */,
 				69DA493E20D32AF10071206B /* DetailCarViewController.swift in Sources */,
+				69578B5D20DCACFC000A1740 /* BucketTransactionsModel.swift in Sources */,
 				6999D17C20D64F1E00DC05EE /* BucketViewController.swift in Sources */,
 				6999D17820D45FEE00DC05EE /* BucketSaleModel.swift in Sources */,
 				69DA494E20D34FB00071206B /* CarViewModel.swift in Sources */,

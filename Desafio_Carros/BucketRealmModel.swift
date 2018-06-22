@@ -181,7 +181,7 @@ class BucketRealmModel {
         
         let sale = (getBucketSale() + (car.first?.preco!)!)
         
-        if (sale < SALE_CLIENT) {
+        if (sale <= SALE_CLIENT) {
             
             //Remove o saldo
             deleteClientCar(newClientCar, car: newCar)
@@ -417,5 +417,97 @@ class BucketRealmModel {
   
         let bucketList = Array(bucketRealm)
         return bucketList
+    }
+    
+    //Remove a cesta de compras
+    func removeAllBucket() {
+        
+        //Recupera o Bucket ativo
+        let bucketId = self.verifyBucketExists()
+        
+        let realm = try! Realm()
+        
+        //Recupera o Bucket
+        let bucket = realm.objects(Bucket.self).filter("id = %@", bucketId)
+        
+        //Recupera os carros
+        let cars = realm.objects(Car.self)
+        
+        var newSale = 0.0
+        
+        //Recupera o novo saldo dos carros do Bucket
+        let carsInBucket = realm.objects(ClientCars.self).filter("idBucket = %@", bucketId)
+        
+        for carBucket in carsInBucket {
+            let preco = carBucket.valor
+            newSale = newSale + preco
+        }
+        
+        //Recupera e atualiza o saldo do Ciente
+        let client = realm.objects(Client.self).filter("email = %@", EMAIL_CLIENT)
+        
+        if let updateClientSale = client.first {
+            try! realm.write {
+                updateClientSale.saldo = (updateClientSale.saldo + newSale)
+            }
+        }
+        
+        //Remove a cesta de compras
+        try! realm.write {
+            realm.delete(bucket)
+            realm.delete(carsInBucket)
+            realm.delete(cars)
+        }
+        
+    }
+    
+    //Salva cesta de compras ativa
+    func saveAllBucket() {
+        
+        //Recupera o Bucket ativo
+        let bucketId = self.verifyBucketExists()
+        
+        let realm = try! Realm()
+        
+        //Recupera o Bucket
+        let bucket = realm.objects(Bucket.self).filter("id = %@", bucketId)
+        
+        //Recupera os carros do Bucket
+        let carsInBucket = realm.objects(ClientCars.self).filter("idBucket = %@", bucketId)
+        
+        //Recupera os carros
+        let cars = realm.objects(Car.self)
+        
+        //Recupera dados do Cliente
+        let client = ClientRealmModel().getClient(EMAIL_CLIENT)
+        
+        //Prepara para salvar a transação de compra
+        var newSale = 0.0
+        var listCars = ""
+        
+        for carBucket in carsInBucket {
+            let preco = carBucket.valor
+            let carroId = carBucket.idCar
+            
+            newSale = newSale + preco
+            listCars = listCars + "\(carroId) | "
+        }
+        
+        let transaction = BucketTransactionsModel()
+        transaction.idBucket = bucketId
+        transaction.idClient = client.id
+        transaction.listCars = listCars
+        transaction.valor = newSale
+        
+        //Remove dados da cesta de compras
+        try! realm.write {
+            realm.delete(bucket)
+            realm.delete(carsInBucket)
+            realm.delete(cars)
+        }
+        
+        //Salva a compra em transações
+        BucketTransactionsRealmModel().saveBucketTransactions(transaction)
+        
     }
 }

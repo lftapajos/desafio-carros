@@ -19,14 +19,14 @@ class Alert: NSObject {
     }
     
     // MARK: Métodos
-    func show(_ title: String = "ATENÇÃO", message: String = "Error", handler: @escaping (UIAlertAction) -> Void) {
+    func show(_ title: String = MESSAGE_ATTENTION, message: String = MESSAGE_MESSAGE, handler: @escaping (UIAlertAction) -> Void) {
         let details = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let cancel = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: handler)
+        let cancel = UIAlertAction(title: MESSAGE_OK, style: UIAlertActionStyle.cancel, handler: handler)
         details.addAction(cancel)
         controller.present(details, animated: true, completion: nil)
     }
     
-    func showConfirm(_ title: String = "CONFIRM", message: String = "Mensagem", okMessage: String = "OK", cancelMessage: String = "CANCEL", success: (() -> Void)?, cancel: (() -> Void)?) {
+    func showConfirm(_ title: String = MESSAGE_CONFIRM, message: String = MESSAGE_MESSAGE, okMessage: String = MESSAGE_OK, cancelMessage: String = MESSAGE_CANCEL, success: (() -> Void)?, cancel: (() -> Void)?) {
         
         let confirmMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: okMessage, style: .default, handler: { (action) -> Void in success?()})

@@ -48,3 +48,11 @@ class ClientCars : Object {
     dynamic var quantidade: Int = 0
     dynamic var valor: Double = 0.0
 }
+
+class BucketTransactions : Object {
+    
+    dynamic var idBucket: String = ""
+    dynamic var idClient: String = ""
+    dynamic var listCars: String = ""
+    dynamic var valor: Double = 0.0
+}

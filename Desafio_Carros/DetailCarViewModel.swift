@@ -13,9 +13,9 @@ class DetailCarViewModel: NSObject {
     @IBOutlet weak var apiClient: APIClient!
     
     var carsList = [CarsModel]()
-    var client = ClientRealmModel()
-    var cars = CarRealmModel()
-    var bucket = BucketRealmModel()
+    var clientRealm = ClientRealmModel()
+    var carsRealm = CarRealmModel()
+    var bucketRealm = BucketRealmModel()
     
     var carActualQuantity = 0;
     
@@ -42,10 +42,10 @@ class DetailCarViewModel: NSObject {
     func getBucket(_ controller: DetailCarViewController, initial: Bool) -> Bool {
         
         //Calcula saldo do cliente por possível cesta de compras
-        let actualBucket = bucket.getBucket()
+        let actualBucket = bucketRealm.getBucket()
         
         //Saldo atual do cliente
-        let cli = client.getClient(EMAIL_CLIENT)
+        let cli = clientRealm.getClient(EMAIL_CLIENT)
         let newSale = cli.saldo //- actualBucket.valor!)
         controller.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: newSale))"
         
@@ -53,7 +53,7 @@ class DetailCarViewModel: NSObject {
         if (self.carsList.first?.id != nil) {
             
             //Recupera saldo substraido da cesta de compas
-            let actualCarBucket = bucket.getCarBucket("\((self.carsList.first?.id)!)")
+            let actualCarBucket = bucketRealm.getCarBucket("\((self.carsList.first?.id)!)")
             
             //Se o carro selecionado está na cesta de compras, mostra botão de remover
             if (actualCarBucket > 0) {
@@ -106,7 +106,7 @@ class DetailCarViewModel: NSObject {
         if (!getBucket(controller, initial: true)) {
             
             //Recupera detalhes do cliente, formata e carrega o saldo atual
-            let cli = client.getClient(EMAIL_CLIENT)
+            let cli = clientRealm.getClient(EMAIL_CLIENT)
             controller.labelSale.text = "\(Help.shared.formatCoin("pt_BR", valor: cli.saldo))"
         }
     }
@@ -122,13 +122,13 @@ class DetailCarViewModel: NSObject {
         var carPrice = 0.0
         
         //Cria e carrega o id do Bucket
-        let bucketId = BucketRealmModel().createBucket(bucket)
+        let bucketId = bucketRealm.createBucket(bucket)
         
         //Quantidade atual no estoque do carro selecionado
         let actualQuantity = self.carsList.first!.quantidade!
         
         //Recupera dados do Cliente
-        let client = ClientRealmModel().getClient(EMAIL_CLIENT)
+        let client = clientRealm.getClient(EMAIL_CLIENT)
         
         //Saldo atual do cliente
         let actualSale = client.saldo
@@ -148,7 +148,7 @@ class DetailCarViewModel: NSObject {
             clientCars.valor = carPrice
             
             //Se foi possível adicionar ou alterar os dados de compra do carro
-            if (BucketRealmModel().addClientCars(clientCar: clientCars, car: self.carsList)) {
+            if (bucketRealm.addClientCars(clientCar: clientCars, car: self.carsList)) {
                 
                 //Subtrai a quantidade atual
                 carQuantity = (actualQuantity - 1)
@@ -184,16 +184,16 @@ class DetailCarViewModel: NSObject {
         var carPrice = 0.0
         
         //Recupera o ID do Bucket
-        let bucketId = BucketRealmModel().verifyBucketExists()
+        let bucketId = bucketRealm.verifyBucketExists()
         
         //Quantidade atual no estoque do carro selecionado
         let actualQuantity = self.carsList.first!.quantidade!
         
         //Recupera dados do Cliente
-        let client = ClientRealmModel().getClient(EMAIL_CLIENT)
+        let client = clientRealm.getClient(EMAIL_CLIENT)
         
         //Saldo atual do cliente
-        let actualSale = client.saldo //BucketRealmModel().getBucketSale()
+        let actualSale = client.saldo //bucketRealm.getBucketSale()
         
         //Verifica se o saldo é menor que saldo incial do cliente
         if (actualSale < SALE_CLIENT) {
@@ -210,7 +210,7 @@ class DetailCarViewModel: NSObject {
             clientCars.valor = carPrice
             
             //Se foi possível deletar os dados de compra do carro
-            if (BucketRealmModel().deleteClientCars(clientCar: clientCars, car: self.carsList)) {
+            if (bucketRealm.deleteClientCars(clientCar: clientCars, car: self.carsList)) {
                 
                 //Adiciona a quantidade nova
                 let carQuantity = (actualQuantity + 1)
@@ -239,7 +239,7 @@ class DetailCarViewModel: NSObject {
     //Função para verificar se o carro já foi adicionado na cesta de compras
     func getCarInBucket(car: CarsModel) -> Bool {
         
-        let carRetorno = BucketRealmModel().getCarInBucket(car: car)
+        let carRetorno = bucketRealm.getCarInBucket(car: car)
         
         return carRetorno
     }

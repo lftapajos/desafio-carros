@@ -48,10 +48,12 @@ class BucketViewController: UIViewController {
     
     @IBAction func confirmRemoveBucket(_ sender: Any) {
         self.bucketViewModel.showConfirmAlertRemoveBucket(self, message: MESSAGE_REMOVE_BUCKET, returnPage: false)
+        self.bucketTableView.reloadData()
     }
     
     @IBAction func confirmBucket(_ sender: Any) {
         self.bucketViewModel.showConfirmAlertBucket(self, message: MESSAGE_CONFIRM_BUCKET, returnPage: false)
+        self.bucketTableView.reloadData()
     }
     
 }
